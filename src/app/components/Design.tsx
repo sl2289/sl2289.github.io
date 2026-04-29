@@ -43,15 +43,15 @@ export function Design() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-24">
+    <div className="mx-auto max-w-6xl overflow-x-hidden px-4 py-16 sm:px-6 md:px-8 md:py-24">
       {/* Header */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-24"
+        className="mb-16 md:mb-24"
       >
-        <h1 className="text-6xl mb-6 font-semibold tracking-tight">Design</h1>
-        <p className="text-muted-foreground text-xl max-w-3xl leading-relaxed">
+        <h1 className="mb-5 text-4xl font-semibold tracking-tight sm:text-5xl md:mb-6 md:text-6xl">Design</h1>
+        <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
           UX research, interaction design, visual communication, and photography-informed thinking—connecting design practice with research inquiry.
         </p>
       </motion.section>
@@ -61,10 +61,10 @@ export function Design() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-24"
+        className="mb-16 md:mb-24"
       >
-        <h2 className="text-3xl mb-12 font-semibold">UX Case Studies</h2>
-        <div className="space-y-10">
+        <h2 className="mb-8 text-2xl font-semibold md:mb-12 md:text-3xl">UX Case Studies</h2>
+        <div className="space-y-6 md:space-y-10">
           {caseStudies.map((study, index) => (
             <motion.div
               key={study.title}
@@ -81,10 +81,10 @@ export function Design() {
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
-              <div className="p-10">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-2xl font-semibold">{study.title}</h3>
-                  <span className="text-sm text-muted-foreground whitespace-nowrap ml-4 px-4 py-1.5 bg-muted/50 rounded-full font-medium">
+              <div className="p-6 md:p-10">
+                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <h3 className="text-xl font-semibold md:text-2xl">{study.title}</h3>
+                  <span className="ml-0 w-fit whitespace-nowrap rounded-full bg-muted/50 px-4 py-1.5 text-sm font-medium text-muted-foreground sm:ml-4">
                     {study.role}
                   </span>
                 </div>
@@ -112,10 +112,10 @@ export function Design() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="mb-24"
+        className="mb-16 md:mb-24"
       >
-        <h2 className="text-3xl mb-12 font-semibold">Visual Communication</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <h2 className="mb-8 text-2xl font-semibold md:mb-12 md:text-3xl">Visual Communication</h2>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {visualProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -148,14 +148,14 @@ export function Design() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
-        className="mb-24"
+        className="mb-16 md:mb-24"
       >
-        <h2 className="text-3xl mb-8 font-semibold">Motion & Interaction</h2>
-        <div className="bg-card border border-border/50 rounded-3xl p-10 hover:border-border transition-all">
-          <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
+        <h2 className="mb-8 text-2xl font-semibold md:text-3xl">Motion & Interaction</h2>
+        <div className="rounded-3xl border border-border/50 bg-card p-6 transition-all hover:border-border md:p-10">
+          <p className="mb-8 max-w-3xl leading-relaxed text-muted-foreground">
             Exploring animation and micro-interactions to enhance usability and delight. Work includes prototype transitions, loading states, onboarding flows, and explanatory animations for research dissemination.
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
             <div className="group relative aspect-video bg-gradient-to-br from-muted to-accent/10 rounded-2xl flex items-center justify-center overflow-hidden cursor-pointer">
               <ImageWithFallback
                 src=""
@@ -179,14 +179,14 @@ export function Design() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="pb-24"
+        className="pb-16 md:pb-24"
       >
-        <h2 className="text-3xl mb-8 font-semibold">Photography</h2>
-        <div className="bg-card border border-border/50 rounded-3xl p-10 hover:border-border transition-all">
-          <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
+        <h2 className="mb-8 text-2xl font-semibold md:text-3xl">Photography</h2>
+        <div className="rounded-3xl border border-border/50 bg-card p-6 transition-all hover:border-border md:p-10">
+          <p className="mb-8 max-w-3xl leading-relaxed text-muted-foreground">
             Photography training informs visual thinking, composition, and attention to detail throughout design work. Experience in portrait, documentary, and editorial photography contributes to a strong foundation in visual storytelling.
           </p>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}

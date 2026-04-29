@@ -38,19 +38,19 @@ export function About() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-24">
+    <div className="mx-auto max-w-6xl overflow-x-hidden px-4 py-16 sm:px-6 md:px-8 md:py-24">
       {/* Header */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-24 max-w-4xl"
+        className="mb-16 max-w-4xl md:mb-24"
       >
-        <h1 className="text-6xl mb-8 font-semibold tracking-tight">About</h1>
+        <h1 className="mb-6 text-4xl font-semibold tracking-tight sm:text-5xl md:mb-8 md:text-6xl">About</h1>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="space-y-6 text-muted-foreground text-lg leading-relaxed"
+          className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg md:space-y-6"
         >
           <p>
             I am a PhD student in Human-Computer Interaction, exploring how people learn,
@@ -87,15 +87,15 @@ export function About() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
-        className="mb-24"
+        className="mb-16 md:mb-24"
       >
-        <h2 className="text-3xl mb-10 font-semibold">Skills & Tools</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <h2 className="mb-8 text-2xl font-semibold md:mb-10 md:text-3xl">Skills & Tools</h2>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-card border border-border/50 rounded-2xl p-8 hover:border-border transition-all hover:shadow-lg"
+            className="rounded-2xl border border-border/50 bg-card p-6 transition-all hover:border-border hover:shadow-lg md:p-8"
           >
             <h3 className="mb-6 font-semibold">Research Methods</h3>
             <div className="flex flex-wrap gap-2">
@@ -114,7 +114,7 @@ export function About() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="bg-card border border-border/50 rounded-2xl p-8 hover:border-border transition-all hover:shadow-lg"
+            className="rounded-2xl border border-border/50 bg-card p-6 transition-all hover:border-border hover:shadow-lg md:p-8"
           >
             <h3 className="mb-6 font-semibold">Design Tools</h3>
             <div className="flex flex-wrap gap-2">
@@ -133,7 +133,7 @@ export function About() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="bg-card border border-border/50 rounded-2xl p-8 hover:border-border transition-all hover:shadow-lg"
+            className="rounded-2xl border border-border/50 bg-card p-6 transition-all hover:border-border hover:shadow-lg md:p-8"
           >
             <h3 className="mb-6 font-semibold">Frontend / Prototyping</h3>
             <div className="flex flex-wrap gap-2">
@@ -152,7 +152,7 @@ export function About() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65 }}
-            className="bg-card border border-border/50 rounded-2xl p-8 hover:border-border transition-all hover:shadow-lg"
+            className="rounded-2xl border border-border/50 bg-card p-6 transition-all hover:border-border hover:shadow-lg md:p-8"
           >
             <h3 className="mb-6 font-semibold">VR/MR Tools</h3>
             <div className="flex flex-wrap gap-2">
@@ -174,11 +174,11 @@ export function About() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
-        className="pb-24"
+        className="pb-16 md:pb-24"
       >
-        <h2 className="text-3xl mb-10 font-semibold">Contact & Links</h2>
-        <div className="bg-card border border-border/50 rounded-2xl p-10">
-          <div className="grid md:grid-cols-2 gap-6">
+        <h2 className="mb-8 text-2xl font-semibold md:mb-10 md:text-3xl">Contact & Links</h2>
+        <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-10">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
             {[
               { icon: Mail, text: "your.email@university.edu", href: "mailto:your.email@university.edu" },
               { icon: Github, text: "GitHub", href: "https://github.com/yourusername" },
@@ -191,7 +191,7 @@ export function About() {
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group flex items-center gap-4 text-muted-foreground hover:text-foreground transition-all p-4 rounded-xl hover:bg-muted/30"
+                className="group flex items-center gap-3 rounded-xl p-3 text-muted-foreground transition-all hover:bg-muted/30 hover:text-foreground sm:gap-4 sm:p-4"
               >
                 <div className="w-10 h-10 bg-muted/50 rounded-xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                   <link.icon className="w-5 h-5 group-hover:text-primary transition-colors" />
