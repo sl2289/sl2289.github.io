@@ -24,10 +24,10 @@ export function HomeFigma() {
       <div className="mx-auto max-w-[1152px] px-4 pt-10 sm:px-6 md:px-8 md:pt-[73px]">
         {/* Hero Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="pb-12 pt-16 md:pb-16 md:pt-24 lg:pt-32"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="pb-12 pt-16 [will-change:transform,opacity] md:pb-16 md:pt-24 lg:pt-32"
         >
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.16em] text-primary sm:text-sm md:mb-6 md:tracking-[0.2em]">
             HCI RESEARCHER & DESIGNER
@@ -45,23 +45,24 @@ export function HomeFigma() {
 
         {/* Navigation Cards */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mb-16 grid grid-cols-1 gap-5 sm:gap-6 md:mb-24 md:grid-cols-2 md:gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.12, duration: 0.45, ease: "easeOut" }}
+          className="relative mb-16 grid grid-cols-1 gap-5 sm:gap-6 md:mb-24 md:grid-cols-2 md:gap-8"
         >
           <Link
             to="/research"
-            className="group rounded-[24px] border border-[rgba(231,229,228,0.5)] bg-white p-6 transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-blue-500/5 sm:p-8 lg:p-12"
+            className="group relative overflow-hidden rounded-[24px] border border-white/40 bg-white/28 p-6 backdrop-blur-xl transition-all hover:border-blue-200/60 hover:bg-white/32 hover:shadow-xl hover:shadow-blue-500/10 sm:p-8 lg:p-12"
           >
-            <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500/15 transition-colors">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/45 via-white/18 to-transparent" />
+            <div className="relative mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/12 transition-colors group-hover:bg-blue-500/18">
               <FlaskConical className="w-6 h-6 text-primary" />
             </div>
-            <h2 className="mb-4 text-2xl font-semibold sm:text-[28px] lg:text-[30px]">Research</h2>
-            <p className="text-[#737373] leading-relaxed mb-8">
+            <h2 className="relative mb-4 text-2xl font-semibold sm:text-[28px] lg:text-[30px]">Research</h2>
+            <p className="relative mb-8 leading-relaxed text-[#737373]">
               Interactive learning systems, VR/MR interaction, and AI-supported educational tools.
             </p>
-            <div className="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">
+            <div className="relative flex items-center gap-2 text-sm font-medium transition-all group-hover:gap-3">
               Explore
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -69,16 +70,17 @@ export function HomeFigma() {
 
           <Link
             to="/design"
-            className="group rounded-[24px] border border-[rgba(231,229,228,0.5)] bg-white p-6 transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-blue-500/5 sm:p-8 lg:p-12"
+            className="group relative overflow-hidden rounded-[24px] border border-white/40 bg-white/25 p-6 backdrop-blur-xl transition-all hover:border-blue-200/60 hover:bg-white/30 hover:shadow-xl hover:shadow-blue-500/10 sm:p-8 lg:p-12"
           >
-            <div className="w-12 h-12 bg-blue-100/60 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/42 via-white/16 to-transparent" />
+            <div className="relative mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100/45 transition-colors group-hover:bg-blue-100/60">
               <Palette className="w-6 h-6 text-primary" />
             </div>
-            <h2 className="mb-4 text-2xl font-semibold sm:text-[28px] lg:text-[30px]">Design</h2>
-            <p className="text-[#737373] leading-relaxed mb-8">
+            <h2 className="relative mb-4 text-2xl font-semibold sm:text-[28px] lg:text-[30px]">Design</h2>
+            <p className="relative mb-8 leading-relaxed text-[#737373]">
               UX research, visual communication, motion design, and photography-informed thinking.
             </p>
-            <div className="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">
+            <div className="relative flex items-center gap-2 text-sm font-medium transition-all group-hover:gap-3">
               Explore
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -87,9 +89,9 @@ export function HomeFigma() {
 
         {/* Featured Work */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.45, ease: "easeOut" }}
           className="mb-16 md:mb-20"
         >
           <h2 className="mb-8 text-3xl font-semibold md:mb-12 md:text-4xl">Featured Work</h2>
@@ -137,9 +139,9 @@ export function HomeFigma() {
 
         {/* Current Focus */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.28, duration: 0.45, ease: "easeOut" }}
           className="pb-20 md:pb-32"
         >
           <h2 className="text-2xl font-semibold mb-8">Current Focus</h2>

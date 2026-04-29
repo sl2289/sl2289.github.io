@@ -86,7 +86,7 @@ export function About() {
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.5 }}
         className="mb-16 md:mb-24"
       >
         <h2 className="mb-8 text-2xl font-semibold md:mb-10 md:text-3xl">Skills & Tools</h2>
