@@ -36,10 +36,10 @@ export default function DesignPage() {
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
-      <div className="mx-auto max-w-[1100px] px-4 py-12 sm:px-6 md:px-8 md:py-20 md:pt-[73px]">
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
+      <div className="mx-auto max-w-[1360px] px-4 py-12 sm:px-6 md:px-8 lg:px-10 md:py-20 md:pt-[73px]">
+        <div className="flex flex-col gap-10 xl:flex-row xl:gap-10">
           {/* Main Content */}
-          <div className="flex-1 max-w-[1248px]">
+          <div className="min-w-0 flex-1 xl:max-w-[1120px]">
             {/* Header */}
             <div className="mb-16">
               <h1 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
@@ -56,12 +56,12 @@ export default function DesignPage() {
                 MR
               </h2>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-8">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
                   <div className="bg-[#f5f5f5] aspect-[16/9] flex items-center justify-center">
                     <span className="text-[14px] text-[#a3a3a3]">Mixed Reality</span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 md:p-5">
                     <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                       Mixed Reality
                     </p>
@@ -78,7 +78,7 @@ export default function DesignPage() {
                   <div className="bg-[#f5f5f5] aspect-[16/9] flex items-center justify-center">
                     <span className="text-[14px] text-[#a3a3a3]">Mixed Reality</span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 md:p-5">
                     <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                       Mixed Reality
                     </p>
@@ -108,12 +108,12 @@ export default function DesignPage() {
                 UX
               </h2>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-8">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
-                  <div className="flex aspect-[4/3] items-center justify-center bg-[#f5f5f5] md:h-[340px] md:aspect-auto">
+                  <div className="flex aspect-[16/9] items-center justify-center bg-[#f5f5f5]">
                     <span className="text-[14px] text-[#a3a3a3]">UX Research</span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 md:p-5">
                     <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                       UX Research
                     </p>
@@ -127,10 +127,10 @@ export default function DesignPage() {
                 </div>
 
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
-                  <div className="flex aspect-[4/3] items-center justify-center bg-[#f5f5f5] md:h-[340px] md:aspect-auto">
+                  <div className="flex aspect-[16/9] items-center justify-center bg-[#f5f5f5]">
                     <span className="text-[14px] text-[#a3a3a3]">UX Research</span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 md:p-5">
                     <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                       UX Research
                     </p>
@@ -160,12 +160,12 @@ export default function DesignPage() {
                 3D/Motion
               </h2>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-8">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
-                  <div className="flex aspect-[4/3] items-center justify-center bg-[#f5f5f5] md:h-[340px] md:aspect-auto">
+                  <div className="flex aspect-[16/9] items-center justify-center bg-[#f5f5f5]">
                     <span className="text-[14px] text-[#a3a3a3]">3D Design</span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 md:p-5">
                     <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                       3D Design
                     </p>
@@ -179,10 +179,10 @@ export default function DesignPage() {
                 </div>
 
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
-                  <div className="flex aspect-[4/3] items-center justify-center bg-[#f5f5f5] md:h-[340px] md:aspect-auto">
+                  <div className="flex aspect-[16/9] items-center justify-center bg-[#f5f5f5]">
                     <span className="text-[14px] text-[#a3a3a3]">Motion Graphics</span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 md:p-5">
                     <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                       Motion Graphics
                     </p>
@@ -208,8 +208,8 @@ export default function DesignPage() {
           </div>
 
           {/* Sticky Sidebar */}
-          <div className="w-full flex-shrink-0 lg:w-[200px]">
-            <div className="lg:sticky lg:top-24">
+          <div className="w-full flex-shrink-0 xl:w-[160px]">
+            <div className="xl:sticky xl:top-24">
               <div className="border-l-2 border-[#e5e5e5] pl-6">
                 <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-4">
                   On This Page

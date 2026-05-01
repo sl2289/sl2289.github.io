@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 export default function Design3DMotionPage() {
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
-      <div className="mx-auto max-w-[1248px] px-4 py-12 sm:px-6 md:px-12 md:py-20 md:pt-[73px]">
+      <div className="mx-auto max-w-[1360px] px-4 py-12 sm:px-6 md:px-10 lg:px-12 md:py-20 md:pt-[73px]">
         <Link to="/design" className="mb-6 inline-block text-[14px] font-medium tracking-[-0.1504px] text-[#737373] hover:text-[#171717] md:mb-8">
           ← Back to Design
         </Link>
@@ -15,12 +15,12 @@ export default function Design3DMotionPage() {
           Three-dimensional visualization and motion graphics work.
         </p>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-8">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
           <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
             <div className="bg-[#f5f5f5] aspect-[16/9] flex items-center justify-center">
               <span className="text-[14px] text-[#a3a3a3]">3D Design</span>
             </div>
-            <div className="p-5">
+            <div className="p-4 md:p-5">
               <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                 3D Design
               </p>
@@ -37,7 +37,7 @@ export default function Design3DMotionPage() {
             <div className="bg-[#f5f5f5] aspect-[16/9] flex items-center justify-center">
               <span className="text-[14px] text-[#a3a3a3]">Motion Graphics</span>
             </div>
-            <div className="p-5">
+            <div className="p-4 md:p-5">
               <p className="font-semibold text-[11px] tracking-[0.6px] uppercase text-[#707070] mb-1">
                 Motion Graphics
               </p>
