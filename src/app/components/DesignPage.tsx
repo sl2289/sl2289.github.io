@@ -242,6 +242,20 @@ export default function DesignPage() {
                   </button>
                 </nav>
               </div>
+
+              <div className="mt-8 border-l-2 border-[#e5e5e5] pl-6">
+                <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-3">
+                  Contact
+                </h3>
+                <div className="space-y-2">
+                  <a href="#" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
+                    Behance
+                  </a>
+                  <a href="#" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
+                    RedNote
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
