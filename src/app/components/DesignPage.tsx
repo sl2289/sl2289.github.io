@@ -36,12 +36,12 @@ export default function DesignPage() {
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
-      <div className="mx-auto max-w-[1360px] px-4 py-12 sm:px-6 md:px-8 lg:px-10 md:py-20 md:pt-[73px]">
-        <div className="flex flex-col gap-10 xl:flex-row xl:gap-10">
+      <div className="mx-auto max-w-[1520px] px-4 py-12 sm:px-6 md:px-8 lg:px-10 xl:px-12 md:py-20 md:pt-[73px]">
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8">
           {/* Main Content */}
-          <div className="min-w-0 flex-1 xl:max-w-[1120px]">
+          <div className="min-w-0 flex-1">
             {/* Header */}
-            <div className="mb-16">
+            <div className="mb-12">
               <h1 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 Design Work
               </h1>
@@ -51,12 +51,12 @@ export default function DesignPage() {
             </div>
 
             {/* MR Section */}
-            <section id="mr" className="mb-20">
+            <section id="mr" className="mb-14 scroll-mt-28 md:scroll-mt-32">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 MR
               </h2>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
                   <div className="bg-[#f5f5f5] aspect-[16/9] flex items-center justify-center">
                     <span className="text-[14px] text-[#a3a3a3]">Mixed Reality</span>
@@ -92,7 +92,7 @@ export default function DesignPage() {
                 </div>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mt-4 text-center">
                 <Link
                   to="/design/mr"
                   className="inline-block text-[14px] font-medium tracking-[-0.1504px] text-[#171717] hover:text-[#3b82f6] transition-colors"
@@ -103,12 +103,12 @@ export default function DesignPage() {
             </section>
 
             {/* UX Section */}
-            <section id="ux" className="mb-20">
+            <section id="ux" className="mb-14 scroll-mt-28 md:scroll-mt-32">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 UX
               </h2>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
                   <div className="flex aspect-[16/9] items-center justify-center bg-[#f5f5f5]">
                     <span className="text-[14px] text-[#a3a3a3]">UX Research</span>
@@ -144,7 +144,7 @@ export default function DesignPage() {
                 </div>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mt-4 text-center">
                 <Link
                   to="/design/ux"
                   className="inline-block text-[14px] font-medium tracking-[-0.1504px] text-[#171717] hover:text-[#3b82f6] transition-colors"
@@ -155,12 +155,12 @@ export default function DesignPage() {
             </section>
 
             {/* 3D/Motion Section */}
-            <section id="3d-motion" className="mb-20">
+            <section id="3d-motion" className="mb-14 scroll-mt-28 md:scroll-mt-32">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 3D/Motion
               </h2>
 
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-10">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
                 <div className="bg-white border border-[rgba(231,229,228,0.5)] rounded-2xl overflow-hidden">
                   <div className="flex aspect-[16/9] items-center justify-center bg-[#f5f5f5]">
                     <span className="text-[14px] text-[#a3a3a3]">3D Design</span>
@@ -196,7 +196,7 @@ export default function DesignPage() {
                 </div>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mt-4 text-center">
                 <Link
                   to="/design/3d-motion"
                   className="inline-block text-[14px] font-medium tracking-[-0.1504px] text-[#171717] hover:text-[#3b82f6] transition-colors"
@@ -208,8 +208,8 @@ export default function DesignPage() {
           </div>
 
           {/* Sticky Sidebar */}
-          <div className="w-full flex-shrink-0 xl:w-[160px]">
-            <div className="xl:sticky xl:top-24">
+          <div className="w-full flex-shrink-0 lg:w-[136px]">
+            <div className="lg:sticky lg:top-24 lg:self-start">
               <div className="border-l-2 border-[#e5e5e5] pl-6">
                 <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-4">
                   On This Page
