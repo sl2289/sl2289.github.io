@@ -1,0 +1,3 @@
+I am a PhD student in Human-Computer Interaction, exploring how people learn, interact, and create with emerging technologies. My research focuses on interactive learning systems, with particular emphasis on video-based tutorial learning, AI-assisted educational tools, and VR/MR interaction design.
+
+My path to HCI research began with photography and visual communication design. Working as a photographer taught me to observe carefully, to see how people interact with their environments, and to communicate through visual means. This foundation led me to pursue visual communication and motion design, where I became interested in how design decisions affect user experience and comprehension.

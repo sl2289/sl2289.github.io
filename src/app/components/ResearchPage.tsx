@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { publications, teaching, researchAboutHtml } from '../lib/content';
+
+const proseClass =
+  '[&_a]:underline [&_a:hover]:text-[#171717] [&_p]:text-[16px] [&_p]:leading-7 [&_p]:tracking-[-0.2px] [&_p]:text-[#525252] md:[&_p]:text-[18px] md:[&_p]:leading-[28px] md:[&_p]:tracking-[-0.4395px]';
 
 export default function ResearchPage() {
   const [activeSection, setActiveSection] = useState('about');
@@ -40,176 +44,109 @@ export default function ResearchPage() {
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
           {/* Main Content */}
           <div className="flex-1 max-w-[800px]">
-            {/* About Me Section */}
+            {/* About Me Section — content/research-about.md */}
             <section id="about" className="mb-20">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 About Me
               </h2>
 
-              <div className="space-y-5">
-                <p className="text-[16px] leading-7 tracking-[-0.2px] text-[#525252] md:text-[18px] md:leading-[28px] md:tracking-[-0.4395px]">
-                  I am a PhD student in Human-Computer Interaction, exploring how people learn, interact, and create with emerging technologies. My research focuses on interactive learning systems, with particular emphasis on video-based tutorial learning, AI-assisted educational tools, and VR/MR interaction design.
-                </p>
-
-                <p className="text-[16px] leading-7 tracking-[-0.2px] text-[#525252] md:text-[18px] md:leading-[28px] md:tracking-[-0.4395px]">
-                  My path to HCI research began with photography and visual communication design. Working as a photographer taught me to observe carefully, to see how people interact with their environments, and to communicate through visual means. This foundation led me to pursue visual communication and motion design, where I became interested in how design decisions affect user experience and comprehension.
-                </p>
-              </div>
+              <div className={`space-y-5 ${proseClass}`} dangerouslySetInnerHTML={{ __html: researchAboutHtml }} />
             </section>
 
-            {/* Publications Section */}
+            {/* Publications Section — content/_publications/*.md */}
             <section id="publications" className="mb-20">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 Publications
               </h2>
 
               <div className="space-y-10">
-                {/* Publication 1 */}
-                <div className="flex flex-col gap-4 border-l-4 border-[#171717] pl-4 pt-2 sm:gap-6 sm:pl-9 md:flex-row">
-                  <div className="h-[180px] w-full flex-shrink-0 rounded bg-[#e5e5e5] overflow-hidden md:h-[120px] md:w-[180px]">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1763568258696-32147bb44379?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
-                      alt="AutoCue research"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                {publications.map((pub) => {
+                  const links = [
+                    { label: 'PDF', href: pub.paperurl },
+                    { label: 'Slides', href: pub.slidesurl },
+                    { label: 'BibTeX', href: pub.bibtexurl },
+                  ].filter((link) => link.href);
 
-                  <div className="flex-1">
-                    <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                      <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
-                        AutoCue: Intelligent Visual Cue Generation for Software Tutorial Videos
-                      </h3>
-                      <span className="ml-0 w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252] sm:ml-4">
-                        2027
-                      </span>
+                  return (
+                    <div key={pub.slug} className="flex flex-col gap-4 border-l-4 border-[#171717] pl-4 pt-2 sm:gap-6 sm:pl-9 md:flex-row">
+                      {pub.image && (
+                        <div className="h-[180px] w-full flex-shrink-0 rounded bg-[#e5e5e5] overflow-hidden md:h-[120px] md:w-[180px]">
+                          <ImageWithFallback src={pub.image} alt={pub.title} className="w-full h-full object-cover" />
+                        </div>
+                      )}
+
+                      <div className="flex-1">
+                        <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                          <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
+                            {pub.title}
+                          </h3>
+                          <span className="ml-0 w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252] sm:ml-4">
+                            {pub.date.slice(0, 4)}
+                          </span>
+                        </div>
+                        {pub.authors && (
+                          <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
+                            {pub.authors}
+                          </p>
+                        )}
+                        <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252] italic">
+                          {pub.status ?? pub.venue}
+                        </p>
+                        {pub.excerpt && (
+                          <p className="mt-2 text-[14px] leading-[22px] tracking-[-0.1504px] text-[#737373]">
+                            {pub.excerpt}
+                          </p>
+                        )}
+                        {links.length > 0 && (
+                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                            {links.map((link) => (
+                              <a
+                                key={link.label}
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-[14px] font-medium tracking-[-0.1504px] text-[#525252] hover:text-[#3b82f6] transition-colors"
+                              >
+                                {link.label} ↗
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
-                      Shengyang Liu, [Co-authors]
-                    </p>
-                    <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252] italic">
-                      In Preparation for CHI 2027
-                    </p>
-                  </div>
-                </div>
-
-                {/* Publication 2 */}
-                <div className="flex flex-col gap-4 border-l-4 border-[#171717] pl-4 pt-2 sm:gap-6 sm:pl-9 md:flex-row">
-                  <div className="h-[180px] w-full flex-shrink-0 rounded bg-[#e5e5e5] overflow-hidden md:h-[120px] md:w-[180px]">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1516934406976-ac3b5ceca2a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
-                      alt="Video learning research"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                      <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
-                        Understanding Learner Breakdowns in Video-Based Software Tutorials
-                      </h3>
-                      <span className="ml-0 w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252] sm:ml-4">
-                        2026
-                      </span>
-                    </div>
-                    <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
-                      Shengyang Liu, [Co-authors]
-                    </p>
-                    <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252] italic">
-                      Under Review at CSCW 2026
-                    </p>
-                  </div>
-                </div>
-
-                {/* Publication 3 */}
-                <div className="flex flex-col gap-4 border-l-4 border-[#171717] pl-4 pt-2 sm:gap-6 sm:pl-9 md:flex-row">
-                  <div className="h-[180px] w-full flex-shrink-0 rounded bg-[#e5e5e5] overflow-hidden md:h-[120px] md:w-[180px]">
-                    <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1771765764892-91f2ed4ddbf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
-                      alt="VR learning research"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                      <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
-                        Immersive Learning Environments for Technical Skill Acquisition
-                      </h3>
-                      <span className="ml-0 w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252] sm:ml-4">
-                        2025
-                      </span>
-                    </div>
-                    <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
-                      Shengyang Liu, [Co-authors]
-                    </p>
-                    <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252] italic">
-                      VR Learning Workshop Proceedings
-                    </p>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </section>
 
-            {/* Teaching Section */}
+            {/* Teaching Section — content/_teaching/*.md */}
             <section id="teaching" className="mb-20">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
                 Teaching
               </h2>
 
               <div className="space-y-10">
-                {/* Teaching 1 */}
-                <div className="border-l-4 border-[#171717] pl-9 pt-2">
-                  <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
-                      HCI Methods
-                    </h3>
-                    <span className="w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252]">
-                      Fall 2025
-                    </span>
+                {teaching.map((item) => (
+                  <div key={item.slug} className="border-l-4 border-[#171717] pl-9 pt-2">
+                    <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                      <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
+                        {item.title}
+                      </h3>
+                      <span className="w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252]">
+                        {item.term ?? item.date.slice(0, 4)}
+                      </span>
+                    </div>
+                    {(item.role ?? item.type) && (
+                      <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
+                        {item.role ?? item.type}
+                      </p>
+                    )}
+                    <div
+                      className="[&_a]:underline [&_p]:text-[16px] [&_p]:leading-[24px] [&_p]:tracking-[-0.3125px] [&_p]:text-[#525252]"
+                      dangerouslySetInnerHTML={{ __html: item.bodyHtml }}
+                    />
                   </div>
-                  <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
-                    Teaching Assistant
-                  </p>
-                  <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252]">
-                    Assisted with lectures, graded assignments, and held weekly office hours for graduate-level HCI research methods course.
-                  </p>
-                </div>
-
-                {/* Teaching 2 */}
-                <div className="border-l-4 border-[#171717] pl-9 pt-2">
-                  <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
-                      Interactive Systems Design
-                    </h3>
-                    <span className="w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252]">
-                      Spring 2026
-                    </span>
-                  </div>
-                  <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
-                    Teaching Assistant
-                  </p>
-                  <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252]">
-                    Supported undergraduate students in designing and prototyping interactive systems, provided feedback on design critiques.
-                  </p>
-                </div>
-
-                {/* Teaching 3 */}
-                <div className="border-l-4 border-[#171717] pl-9 pt-2">
-                  <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <h3 className="text-[18px] font-semibold leading-6 tracking-[-0.3px] text-[#171717] md:text-[20px] md:leading-[25px] md:tracking-[-0.4492px]">
-                      Introduction to UX Design
-                    </h3>
-                    <span className="w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-3 py-1 text-[14px] text-[#525252]">
-                      Fall 2024
-                    </span>
-                  </div>
-                  <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#737373] mb-2">
-                    Teaching Assistant
-                  </p>
-                  <p className="text-[16px] leading-[24px] tracking-[-0.3125px] text-[#525252]">
-                    Guided students through user research methods, wireframing, and usability testing fundamentals.
-                  </p>
-                </div>
+                ))}
               </div>
             </section>
           </div>
