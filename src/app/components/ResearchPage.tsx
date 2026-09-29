@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { publications, teaching, researchAboutHtml } from '../lib/content';
+import ProfileSidebar from './ProfileSidebar';
+import { publications, teaching, researchAboutHtml, profile } from '../lib/content';
 
 const proseClass =
   '[&_a]:underline [&_a:hover]:text-[#171717] [&_p]:text-[16px] [&_p]:leading-7 [&_p]:tracking-[-0.2px] [&_p]:text-[#525252] md:[&_p]:text-[18px] md:[&_p]:leading-[28px] md:[&_p]:tracking-[-0.4395px]';
@@ -40,10 +41,13 @@ export default function ResearchPage() {
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
-      <div className="mx-auto max-w-[1100px] px-4 py-12 sm:px-6 md:px-8 md:py-20 md:pt-[73px]">
+      <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-6 md:px-8 md:py-20 md:pt-[73px]">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
+          {/* Profile Sidebar — content/profile.yml */}
+          <ProfileSidebar profile={profile} />
+
           {/* Main Content */}
-          <div className="flex-1 max-w-[800px]">
+          <div className="min-w-0 flex-1 max-w-[800px]">
             {/* About Me Section — content/research-about.md */}
             <section id="about" className="mb-20">
               <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
@@ -152,7 +156,7 @@ export default function ResearchPage() {
           </div>
 
           {/* Sticky Sidebar */}
-          <div className="w-full flex-shrink-0 lg:w-[200px]">
+          <div className="hidden w-[180px] flex-shrink-0 xl:block">
             <div className="lg:sticky lg:top-24">
               <div className="border-l-2 border-[#e5e5e5] pl-6">
                 <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-4">
@@ -185,24 +189,6 @@ export default function ResearchPage() {
                     Teaching
                   </button>
                 </nav>
-              </div>
-
-              {/* Contact Section */}
-              <div className="mt-8 border-l-2 border-[#e5e5e5] pl-6">
-                <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-3">
-                  Contact
-                </h3>
-                <div className="space-y-2">
-                  <a href="mailto:your.email@university.edu" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
-                    Email
-                  </a>
-                  <a href="#" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
-                    Google Scholar
-                  </a>
-                  <a href="#" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
-                    GitHub
-                  </a>
-                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { parse as parseYaml } from 'yaml';
 import { marked } from 'marked';
 import researchAboutRaw from '/content/research-about.md?raw';
+import profileRaw from '/content/profile.yml?raw';
 
 // Content lives in /content using the academicpages front matter format,
 // so entries can be copied to/from an academicpages site as-is.
@@ -68,3 +69,21 @@ export const teaching = loadCollection<Teaching>(
 );
 
 export const researchAboutHtml = marked.parse(researchAboutRaw, { async: false });
+
+export interface ProfileLink {
+  label: string;
+  url: string;
+  icon?: 'mail' | 'scholar' | 'orcid' | 'github' | 'linkedin' | 'link';
+}
+
+export interface Profile {
+  name: string;
+  bio?: string;
+  avatar?: string;
+  location?: string;
+  affiliation?: string;
+  links: ProfileLink[];
+}
+
+const profileData = (parseYaml(profileRaw) ?? {}) as Partial<Profile>;
+export const profile: Profile = { name: '', ...profileData, links: profileData.links ?? [] };

@@ -2,6 +2,7 @@
 
 Research 页（`/research`）从这里的 markdown 文件自动生成，格式与 [academicpages](https://github.com/academicpages/academicpages.github.io) 的 `_publications/`、`_teaching/` 兼容，可以直接从模版复制条目过来。
 
+- `profile.yml` — 左侧个人信息栏：头像、姓名、简介、所在地、学校、链接（Email / Google Scholar / ORCID / GitHub / LinkedIn）。头像放到 `public/images/` 后把 `avatar` 改成 `"/images/文件名.jpg"`；留空显示默认头像
 - `research-about.md` — About Me 正文
 - `_publications/*.md` — 每篇论文一个文件，按 `date` 倒序排列
 - `_teaching/*.md` — 每段教学经历一个文件，按 `date` 倒序排列

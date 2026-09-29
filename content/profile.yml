@@ -1,0 +1,27 @@
+# Left sidebar on the Research page (like the academicpages author sidebar).
+# Put your photo in public/images/ and set avatar, e.g. "/images/profile.jpg".
+# Leave avatar empty to show the default placeholder.
+name: "Shengyang L."
+bio: "PhD student in Human-Computer Interaction"
+avatar: ""
+location: "West Lafayette, IN"
+affiliation: "Purdue University"
+
+# icon: mail | scholar | orcid | github | linkedin | link
+# Placeholder URLs below — replace with your real ones.
+links:
+  - label: "Email"
+    url: "mailto:your.email@university.edu"
+    icon: mail
+  - label: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=XXXXXXXXXXXX&hl=en"
+    icon: scholar
+  - label: "ORCID"
+    url: "https://orcid.org/0000-0000-0000-0000"
+    icon: orcid
+  - label: "GitHub"
+    url: "https://github.com/sl2289"
+    icon: github
+  - label: "LinkedIn"
+    url: "https://www.linkedin.com/in/your-profile"
+    icon: linkedin
