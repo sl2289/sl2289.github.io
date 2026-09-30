@@ -2,8 +2,8 @@
 # Put your photo in public/images/ and set avatar, e.g. "/images/profile.jpg".
 # Leave avatar empty to show the default placeholder.
 name: "Shengyang L."
-bio: "PhD student in Human-Computer Interaction"
-avatar: ""
+bio: "PhD Candidate @ Purdue University"
+avatar: "/images/profile.png"
 location: "West Lafayette, IN"
 affiliation: "Purdue University"
 
