@@ -2,6 +2,8 @@
 # Put your photo in public/images/ and set avatar, e.g. "/images/profile.jpg".
 # Leave avatar empty to show the default placeholder.
 name: "Shengyang L."
+# Your name as it appears in publication author lists; it is shown in bold there.
+author_name: "Shengyang Liu"
 bio: "PhD Candidate @ Purdue University"
 avatar: "/images/profile.png"
 location: "West Lafayette, IN"

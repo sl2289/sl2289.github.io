@@ -22,6 +22,9 @@ export interface Publication {
   paperurl?: string;
   slidesurl?: string;
   bibtexurl?: string;
+  videourl?: string;
+  url?: string;
+  venue_short?: string;
   bodyHtml: string;
 }
 
@@ -34,6 +37,7 @@ export interface Teaching {
   type?: string;
   venue?: string;
   location?: string;
+  url?: string;
   bodyHtml: string;
 }
 
@@ -81,6 +85,7 @@ export interface ProfileLink {
 export interface Profile {
   name: string;
   bio?: string;
+  author_name?: string;
   avatar?: string;
   location?: string;
   affiliation?: string;

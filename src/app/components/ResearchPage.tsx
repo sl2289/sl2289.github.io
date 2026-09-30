@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 import ProfileSidebar from './ProfileSidebar';
+import PublicationList from './PublicationList';
 import { publications, teaching, honors, education, researchAboutHtml, profile } from '../lib/content';
 
 const SECTIONS = [
@@ -70,64 +70,7 @@ export default function ResearchPage() {
                 Publications
               </h2>
 
-              <div className="space-y-8">
-                {publications.map((pub) => {
-                  const links = [
-                    { label: 'PDF', href: pub.paperurl },
-                    { label: 'Slides', href: pub.slidesurl },
-                    { label: 'BibTeX', href: pub.bibtexurl },
-                  ].filter((link) => link.href);
-
-                  return (
-                    <div key={pub.slug} className="flex flex-col gap-4 sm:gap-6 md:flex-row">
-                      {pub.image && (
-                        <div className="h-[180px] w-full flex-shrink-0 rounded bg-[#e5e5e5] overflow-hidden md:h-[96px] md:w-[144px]">
-                          <ImageWithFallback src={pub.image} alt={pub.title} className="w-full h-full object-cover" />
-                        </div>
-                      )}
-
-                      <div className="flex-1">
-                        <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                          <h3 className="text-[15px] font-semibold leading-[22px] tracking-[-0.2px] text-[#171717] md:text-[16px] md:leading-[23px]">
-                            {pub.title}
-                          </h3>
-                          <span className="ml-0 w-fit whitespace-nowrap rounded-full bg-[#f5f5f5] border border-[#e5e5e5] px-2.5 py-0.5 text-[12px] text-[#525252] sm:ml-4">
-                            {pub.date.slice(0, 4)}
-                          </span>
-                        </div>
-                        {pub.authors && (
-                          <p className="text-[14px] leading-[22px] tracking-[-0.15px] text-[#737373] mb-2">
-                            {pub.authors}
-                          </p>
-                        )}
-                        <p className="text-[14px] leading-[22px] tracking-[-0.15px] text-[#525252] italic">
-                          {pub.status ?? pub.venue}
-                        </p>
-                        {pub.excerpt && (
-                          <p className="mt-2 text-[13px] leading-[20px] tracking-[-0.1504px] text-[#737373]">
-                            {pub.excerpt}
-                          </p>
-                        )}
-                        {links.length > 0 && (
-                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-                            {links.map((link) => (
-                              <a
-                                key={link.label}
-                                href={link.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-[13px] font-medium tracking-[-0.1px] text-[#525252] hover:text-[#3b82f6] transition-colors"
-                              >
-                                {link.label} ↗
-                              </a>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              <PublicationList publications={publications} highlight={profile.author_name} />
             </section>
 
             {/* Teaching Section — content/_teaching/*.md */}
@@ -140,11 +83,18 @@ export default function ResearchPage() {
                 {teaching.map((item) => (
                   <li key={item.slug}>
                     <div className="flex flex-col gap-1 sm:flex-row sm:gap-6">
-                      <span className="w-[136px] flex-shrink-0 text-[14px] leading-[22px] tracking-[-0.15px] italic text-[#737373]">
+                      <span className="w-[160px] flex-shrink-0 text-[14px] leading-[22px] tracking-[-0.15px] italic text-[#737373]">
                         {item.term ?? item.date.slice(0, 4)}
                       </span>
                       <div className="text-[14px] leading-[22px] tracking-[-0.15px] text-[#171717]">
-                        {[item.title, item.role ?? item.type].filter(Boolean).join(', ')}
+                        {item.url ? (
+                          <a href={item.url} target="_blank" rel="noreferrer" className="transition-colors hover:text-[#3b82f6]">
+                            {item.title}
+                          </a>
+                        ) : (
+                          item.title
+                        )}
+                        {(item.role ?? item.type) && `, ${item.role ?? item.type}`}
                         {item.bodyHtml && (
                           <div
                             className="mt-0.5 [&_a]:underline [&_p]:text-[13px] [&_p]:leading-[20px] [&_p]:tracking-[-0.1px] [&_p]:text-[#737373]"
@@ -168,7 +118,7 @@ export default function ResearchPage() {
                 {education.map((item) => (
                   <li key={item.period}>
                     <div className="flex flex-col gap-1 sm:flex-row sm:gap-6">
-                      <span className="w-[136px] flex-shrink-0 text-[14px] leading-[22px] tracking-[-0.15px] italic text-[#737373]">
+                      <span className="w-[160px] flex-shrink-0 text-[14px] leading-[22px] tracking-[-0.15px] italic text-[#737373]">
                         {item.period}
                       </span>
                       <span className="text-[14px] leading-[22px] tracking-[-0.15px] text-[#171717]">
