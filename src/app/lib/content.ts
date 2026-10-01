@@ -25,6 +25,7 @@ export interface Publication {
   videourl?: string;
   url?: string;
   venue_short?: string;
+  order?: number;
   bodyHtml: string;
 }
 
@@ -54,8 +55,10 @@ function toDateString(value: unknown) {
 
 function loadCollection<T>(files: Record<string, string>): T[] {
   return Object.entries(files)
-    .map(([path, raw]) => {
-      const { data, body } = parseFrontMatter(raw);
+    .map(([path, raw]) => ({ path, ...parseFrontMatter(raw) }))
+    // academicpages convention: `published: false` hides an entry.
+    .filter(({ data }) => data.published !== false)
+    .map(({ path, data, body }) => {
       return {
         ...data,
         slug: path.split('/').pop()!.replace(/\.md$/, ''),
@@ -66,9 +69,10 @@ function loadCollection<T>(files: Record<string, string>): T[] {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+// Publications are listed by `order` (smallest first); entries without one go last, newest first.
 export const publications = loadCollection<Publication>(
   import.meta.glob('/content/_publications/*.md', { query: '?raw', import: 'default', eager: true }),
-);
+).sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
 
 export const teaching = loadCollection<Teaching>(
   import.meta.glob('/content/_teaching/*.md', { query: '?raw', import: 'default', eager: true }),

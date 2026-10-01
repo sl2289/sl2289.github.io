@@ -7,16 +7,22 @@ function Authors({ authors, highlight }: { authors: string; highlight?: string }
   const names = authors.split(',').map((name) => name.trim());
   return (
     <>
-      {names.map((name, i) => (
-        <Fragment key={`${name}-${i}`}>
-          {i > 0 && ', '}
-          {highlight && name.replace(/[*†‡]/g, '') === highlight ? (
-            <strong className="font-semibold text-[#171717]">{name}</strong>
-          ) : (
-            name
-          )}
-        </Fragment>
-      ))}
+      {names.map((entry, i) => {
+        // "A, B, and C": keep the "and " in the text but match/bold only the name.
+        const name = entry.replace(/^and\s+/, '');
+        const lead = entry.slice(0, entry.length - name.length);
+        return (
+          <Fragment key={`${name}-${i}`}>
+            {i > 0 && ', '}
+            {lead}
+            {highlight && name.replace(/[*†‡]/g, '') === highlight ? (
+              <strong className="font-semibold text-[#171717]">{name}</strong>
+            ) : (
+              name
+            )}
+          </Fragment>
+        );
+      })}
     </>
   );
 }
@@ -57,7 +63,9 @@ function PublicationItem({ pub, highlight }: { pub: Publication; highlight?: str
           ) : (
             <span className="font-medium text-[#2563eb]">{pub.title}.</span>
           )}{' '}
-          <span className="italic">{pub.status ?? pub.venue}</span>
+          <span className="italic">
+            {pub.venue && pub.status ? `${pub.venue}, ${pub.date.slice(0, 4)} (${pub.status})` : (pub.status ?? pub.venue)}
+          </span>
         </p>
 
         <div className="mt-1.5 flex items-center justify-between gap-3">
@@ -96,25 +104,13 @@ function typePrefix(category?: string) {
 }
 
 export default function PublicationList({ publications, highlight }: { publications: Publication[]; highlight?: string }) {
-  // Number each type from oldest (1) to newest, e.g. [C2], [C1], [J1]. `publications` is sorted newest first.
-  const totals: Record<string, number> = {};
-  for (const pub of publications) {
-    const prefix = typePrefix(pub.category);
-    if (prefix) totals[prefix] = (totals[prefix] ?? 0) + 1;
-  }
-  const seen: Record<string, number> = {};
-  const labels = publications.map((pub) => {
-    const prefix = typePrefix(pub.category);
-    if (!prefix) return '';
-    seen[prefix] = (seen[prefix] ?? 0) + 1;
-    return `[${prefix}${totals[prefix] - seen[prefix] + 1}]`;
-  });
-
   return (
     <div className="space-y-5">
-      {publications.map((pub, i) => (
+      {publications.map((pub) => (
         <div key={pub.slug} className="flex gap-3 sm:gap-4">
-          <span className="w-[36px] flex-shrink-0 pt-px text-[13px] leading-[22px] text-[#737373]">{labels[i]}</span>
+          <span className="w-[24px] flex-shrink-0 pt-px text-[13px] leading-[22px] text-[#737373]">
+            {typePrefix(pub.category) && `[${typePrefix(pub.category)}]`}
+          </span>
           <div className="min-w-0 flex-1">
             <PublicationItem pub={pub} highlight={highlight} />
           </div>

@@ -11,6 +11,8 @@ Research 页（`/research`）从这里的 markdown 文件自动生成，格式�
 
 改完保存即可，`npm run dev` 会热更新；push 到 main 后自动部署。
 
+想暂时隐藏某篇论文或某段教学经历、又不想删文件：在它的 front matter 里加 `published: false`（academicpages 的标准写法），删掉这行或改成 `true` 即可恢复显示。
+
 ## 新增论文
 
 `content/_publications/2026-my-paper.md`：
