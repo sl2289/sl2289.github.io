@@ -1,10 +1,15 @@
 import { Link, useLocation } from 'react-router';
+import { aboutPage, homePage } from '../lib/pages';
+
+// Small amber dot after the label of a draft page (only ever shown in dev).
+const draftDot = <span title="Draft" className="ml-1 inline-block h-1.5 w-1.5 -translate-y-1.5 rounded-full bg-[#f59e0b]" />;
 
 export default function Navigation() {
   const location = useLocation();
 
   const isActive = (path: string) => {
-    return location.pathname === path;
+    // Sub-pages (e.g. /design/ux/…) keep their section highlighted.
+    return path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
   };
 
   return (
@@ -25,15 +30,18 @@ export default function Navigation() {
         </Link>
 
         <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-6 md:gap-8">
+          {homePage && (
           <Link
             to="/"
             className="font-medium text-[14px] tracking-[-0.1504px] relative"
           >
             <span className={isActive('/') ? 'text-[#171717]' : 'text-[#737373]'}>Home</span>
+            {homePage.draft && draftDot}
             {isActive('/') && (
               <div className="absolute -bottom-[8px] left-0 right-0 h-[2px] bg-[#3b82f6] [animation:nav-underline-sway_0.36s_ease-out] md:-bottom-[25px]" />
             )}
           </Link>
+          )}
 
           <Link
             to="/research"
@@ -55,15 +63,18 @@ export default function Navigation() {
             )}
           </Link>
 
+          {aboutPage && (
           <Link
             to="/about"
             className="font-medium text-[14px] tracking-[-0.1504px] relative"
           >
             <span className={isActive('/about') ? 'text-[#171717]' : 'text-[#737373]'}>About</span>
+            {aboutPage.draft && draftDot}
             {isActive('/about') && (
               <div className="absolute -bottom-[8px] left-0 right-0 h-[2px] bg-[#3b82f6] [animation:nav-underline-sway_0.36s_ease-out] md:-bottom-[25px]" />
             )}
           </Link>
+          )}
         </nav>
       </div>
       </div>

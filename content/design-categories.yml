@@ -1,0 +1,14 @@
+# Sections on the Design page, in display order.
+# A project's `category` in its index.md must match one of these ids.
+- id: mr
+  label: "MR"
+  title: "Mixed Reality"
+  description: "Immersive experiences and spatial computing projects."
+- id: ux
+  label: "UX"
+  title: "UX Research & Design"
+  description: "User experience research and interface design projects."
+- id: 3d-motion
+  label: "3D/Motion"
+  title: "3D & Motion Design"
+  description: "3D modeling, rendering, and motion graphics."

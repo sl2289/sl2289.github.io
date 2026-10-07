@@ -12,7 +12,7 @@ const SECTIONS = [
 ];
 
 const proseClass =
-  '[&_a]:underline [&_a:hover]:text-[#171717] [&_p]:text-[14px] [&_p]:leading-[24px] [&_p]:tracking-[-0.15px] [&_p]:text-[#525252] md:[&_p]:text-[15px] md:[&_p]:leading-[26px]';
+  '[&_a]:text-[#2563eb] [&_a:hover]:text-[#1d4ed8] [&_a:hover]:underline [&_p]:text-[14px] [&_p]:leading-[24px] [&_p]:tracking-[-0.15px] [&_p]:text-[#525252] md:[&_p]:text-[15px] md:[&_p]:leading-[26px]';
 
 export default function ResearchPage() {
   const [activeSection, setActiveSection] = useState('about');

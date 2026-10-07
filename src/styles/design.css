@@ -1,0 +1,157 @@
+/* Layout for design project pages (content/_design/<slug>/index.md).
+   Text is kept at a readable width; images, GIFs and videos span the full column.
+   Blocks you can use in the markdown:
+     <div class="row">…</div>         side by side (2, 3, 4… items), stacks on phones
+     <figure>…<figcaption>…</figcaption></figure>   media with a caption
+     <div class="spacer"></div>        extra vertical space
+     <iframe src="…youtube…">          responsive 16:9 embed */
+
+.design-prose {
+  color: #525252;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.design-prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.design-prose > p,
+.design-prose > ul,
+.design-prose > ol,
+.design-prose > blockquote,
+.design-prose > h2,
+.design-prose > h3,
+.design-prose > h4 {
+  max-width: 720px;
+}
+
+.design-prose h2 {
+  margin-top: 3.5rem;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #171717;
+}
+
+.design-prose h3 {
+  margin-top: 2.5rem;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #171717;
+}
+
+.design-prose h4 {
+  margin-top: 2rem;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #707070;
+}
+
+.design-prose strong {
+  color: #171717;
+  font-weight: 600;
+}
+
+.design-prose a {
+  color: #2563eb;
+}
+
+.design-prose a:hover {
+  text-decoration: underline;
+}
+
+.design-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.design-prose ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.design-prose li + li {
+  margin-top: 0.25rem;
+}
+
+.design-prose blockquote {
+  border-left: 3px solid #e5e5e5;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.design-prose hr {
+  margin: 3.5rem 0;
+  border-color: #e5e5e5;
+}
+
+/* Media */
+.design-prose img,
+.design-prose video,
+.design-prose iframe {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: #f0f0f0;
+}
+
+.design-prose img,
+.design-prose video {
+  height: auto;
+}
+
+.design-prose iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+
+/* A markdown image on its own line is wrapped in <p>; let it use the full width. */
+.design-prose > p:has(> img:only-child) {
+  max-width: none;
+}
+
+.design-prose figure {
+  margin-top: 2rem;
+}
+
+.design-prose figcaption {
+  margin-top: 0.5rem;
+  font-size: 13px;
+  line-height: 20px;
+  color: #a3a3a3;
+  text-align: center;
+}
+
+/* Side-by-side media */
+.design-prose .row {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .design-prose .row {
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+}
+
+.design-prose .row > * {
+  margin: 0;
+}
+
+.design-prose .row img,
+.design-prose .row video {
+  height: 100%;
+  object-fit: cover;
+}
+
+.design-prose .spacer {
+  height: 3rem;
+}

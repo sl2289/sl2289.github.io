@@ -78,7 +78,10 @@ export const teaching = loadCollection<Teaching>(
   import.meta.glob('/content/_teaching/*.md', { query: '?raw', import: 'default', eager: true }),
 );
 
-export const researchAboutHtml = marked.parse(researchAboutRaw, { async: false });
+// External links in About Me open in a new tab.
+export const researchAboutHtml = marked
+  .parse(researchAboutRaw, { async: false })
+  .replace(/<a href="(https?:)/g, '<a target="_blank" rel="noreferrer" href="$1');
 
 export interface ProfileLink {
   label: string;

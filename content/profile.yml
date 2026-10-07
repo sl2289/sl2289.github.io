@@ -4,26 +4,19 @@
 name: "Shengyang L."
 # Your name as it appears in publication author lists; it is shown in bold there.
 author_name: "Shengyang Luo"
-bio: "PhD Candidate @ Purdue University"
+bio: "PhD Candidate @ Purdue"
 avatar: "/images/profile.png"
 location: "West Lafayette, IN"
 affiliation: "Purdue University"
 
 # icon: mail | scholar | orcid | github | linkedin | link
-# Placeholder URLs below — replace with your real ones.
 links:
   - label: "Email"
-    url: "mailto:your.email@university.edu"
+    url: "mailto:luo525@purdue.edu"
     icon: mail
   - label: "Google Scholar"
-    url: "https://scholar.google.com/citations?user=XXXXXXXXXXXX&hl=en"
+    url: "https://scholar.google.com/citations?hl=zh-CN&user=b6AJ2r4AAAAJ&view_op=list_works"
     icon: scholar
-  - label: "ORCID"
-    url: "https://orcid.org/0000-0000-0000-0000"
-    icon: orcid
-  - label: "GitHub"
-    url: "https://github.com/sl2289"
-    icon: github
   - label: "LinkedIn"
-    url: "https://www.linkedin.com/in/your-profile"
+    url: "https://www.linkedin.com/in/shengyang-luo-70b021308"
     icon: linkedin
