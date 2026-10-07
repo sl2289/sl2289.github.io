@@ -5,7 +5,7 @@ paperurl: "https://arxiv.org/pdf/2608.04910"
 collection: publications
 category: conferences
 date: 2026
-order: 1
+order: 2
 venue: "Proceedings of the Graphics Interface Conference"
 status: "In press"
 venue_short: "GI'26"
