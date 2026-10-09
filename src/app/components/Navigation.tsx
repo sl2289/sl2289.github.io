@@ -26,7 +26,7 @@ export default function Navigation() {
       <div className="bg-[rgba(250,250,250,0.6)] sticky top-0 z-50 w-full border-b border-[rgba(231,229,228,0.5)]">
       <div className="mx-auto flex max-w-[1536px] flex-col gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between md:px-8 md:py-6">
         <Link to="/" className="font-semibold text-[16px] text-[#171717] tracking-[-0.7125px]">
-          Shengyang. L
+          Shengyang Luo
         </Link>
 
         <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-6 md:gap-8">

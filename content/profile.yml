@@ -1,7 +1,7 @@
 # Left sidebar on the Research page (like the academicpages author sidebar).
 # Put your photo in public/images/ and set avatar, e.g. "/images/profile.jpg".
 # Leave avatar empty to show the default placeholder.
-name: "Shengyang L."
+name: "Shengyang Luo"
 # Your name as it appears in publication author lists; it is shown in bold there.
 author_name: "Shengyang Luo"
 bio: "PhD Candidate @ Purdue"

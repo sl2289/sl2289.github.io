@@ -8,7 +8,7 @@ category: 3d-motion                  # mr | ux | 3d-motion  (see content/design-
 type: "Motion"          # small label above the title on the card
 summary: "An experimental motion graphics piece introducing TAICHI, an innovative sneaker material."
 cover: "image2.png"           # card image: .png / .jpg / .gif / .webp, or a .mp4 (plays silently on loop)
-year: 2026                   # optional — shown under the title
+year: 2022                   # optional — shown under the title
 # role: "UX Researcher, Designer"
 tools: "Figma, After Effects"
 order: 0                     # smaller = earlier in its category
