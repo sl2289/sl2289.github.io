@@ -3,18 +3,24 @@
 # then replace the images and text.
 # A folder name starting with "_" (like this one) is a DRAFT: visible while running
 # `npm run dev`, left out of the live site. Remove the "_" when it is ready to publish.
-title: "Example Project"
-category: ux                 # mr | ux | 3d-motion  (see content/design-categories.yml)
-type: "UX Research"          # small label above the title on the card
-summary: "A template showing every layout block you can use on a project page."
-cover: "cover.svg"           # card image: .png / .jpg / .gif / .webp, or a .mp4 (plays silently on loop)
+title: "TAICHI"
+category: 3d-motion                  # mr | ux | 3d-motion  (see content/design-categories.yml)
+type: "Motion"          # small label above the title on the card
+summary: "An experimental motion graphics piece introducing TAICHI, an innovative sneaker material."
+cover: "image2.png"           # card image: .png / .jpg / .gif / .webp, or a .mp4 (plays silently on loop)
 year: 2026                   # optional — shown under the title
-role: "UX Researcher, Designer"
-tools: "Figma, Unity, Maya"
+# role: "UX Researcher, Designer"
+tools: "Figma, After Effects"
 order: 0                     # smaller = earlier in its category
 ---
 
-Regular paragraphs are plain text. You can use **bold**, *italic*, and [links](https://example.com). Text stays at a comfortable reading width, while images and videos span the whole page.
+
+
+<!-- <iframe src="https://www.youtube.com/embed/gUejl_kdHw0" allowfullscreen></iframe> -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/inE7uwiHylo?si=p9i4Z3QQ5H-F1JGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!-- Regular paragraphs are plain text. You can use **bold**, *italic*, and [links](https://example.com). Text stays at a comfortable reading width, while images and videos span the whole page.
 
 ## Full-width image
 
@@ -62,9 +68,9 @@ Bilibili:
 <iframe src="https://player.bilibili.com/player.html?bvid=BV_ID&autoplay=0" allowfullscreen></iframe>
 -->
 
-Videos and images can also go inside a `row` or a `figure`.
+<!-- Videos and images can also go inside a `row` or a `figure`. -->
 
-<div class="spacer"></div>
+<!-- <div class="spacer"></div>
 
 ## Process
 
@@ -76,6 +82,6 @@ Videos and images can also go inside a `row` or a `figure`.
 
 > Quotes from participants look like this.
 
----
+--- -->
 
-A horizontal line (`---`) separates larger parts of the story.
+A horizontal line (`---`) separates larger parts of the story. -->
