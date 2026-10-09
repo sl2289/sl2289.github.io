@@ -46,10 +46,7 @@ Wrap images in a `row` to put them next to each other — two, three, or more. O
 
 ## Video
 
-<iframe src="https://www.youtube.com/embed/gUejl_kdHw0" allowfullscreen></iframe>
-
 Put the video file in this folder and use one of these (remove the `<!-- -->` around it):
-
 
 <!--
 Plays silently on a loop, like a GIF (good for short UI demos):
@@ -59,7 +56,7 @@ Normal video with play / pause controls:
 <video src="walkthrough.mp4" controls></video>
 
 YouTube (use the /embed/ link):
-<iframe src="https://youtu.be/gUejl_kdHw0?si=N5bDb08Mx-NUpDWs" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
 
 Bilibili:
 <iframe src="https://player.bilibili.com/player.html?bvid=BV_ID&autoplay=0" allowfullscreen></iframe>
