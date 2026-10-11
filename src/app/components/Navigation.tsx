@@ -26,7 +26,7 @@ export default function Navigation() {
           100% { transform: translateX(0); }
         }
       `}</style>
-      <div className="sticky top-0 z-50 w-full border-b border-[rgba(0,0,0,0.05)] bg-[rgba(247,247,247,0.4)] backdrop-blur-md backdrop-saturate-150">
+      <div data-topbar className="sticky top-0 z-50 w-full border-b border-[rgba(0,0,0,0.05)] bg-[rgba(247,247,247,0.4)] backdrop-blur-md backdrop-saturate-150">
       <div className="mx-auto flex max-w-[1536px] flex-col gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between md:px-8 md:py-6">
         <Link to={sectionRoot} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-semibold text-[16px] text-[#171717] tracking-[-0.7125px]">
           Shengyang Luo

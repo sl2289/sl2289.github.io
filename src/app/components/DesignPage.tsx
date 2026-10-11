@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import DesignProjectCard from './DesignProjectCard';
 import { designCategories, projectsIn } from '../lib/design';
 import { bodyText, wideContainer, sectionHeading, sidebarHeading, sidebarItem } from './typography';
+import { useSectionNav } from '../lib/useSectionNav';
 
 // How many projects each section shows before "MORE →".
 const PREVIEW_COUNT = 2;
@@ -12,38 +12,10 @@ const SHOW_CONTACT = false;
 
 // Categories with no projects are left out.
 const sections = designCategories.filter((category) => projectsIn(category.id).length > 0);
+const SECTION_IDS = sections.map((section) => section.id);
 
 export default function DesignPage() {
-  const [activeSection, setActiveSection] = useState(sections[0]?.id ?? '');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      for (const { id: section } of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const { active: activeSection, scrollTo: scrollToSection } = useSectionNav(SECTION_IDS);
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
@@ -65,7 +37,7 @@ export default function DesignPage() {
             {sections.map((category) => {
               const projects = projectsIn(category.id);
               return (
-                <section key={category.id} id={category.id} className="mb-14 scroll-mt-28 md:scroll-mt-32">
+                <section key={category.id} id={category.id} className="mb-14">
                   <h2 className={sectionHeading}>
                     {category.label}
                   </h2>

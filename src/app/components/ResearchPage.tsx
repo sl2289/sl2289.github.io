@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
 import ProfileSidebar from './ProfileSidebar';
 import PublicationList from './PublicationList';
 import { publications, teaching, honors, education, researchAboutHtml, profile } from '../lib/content';
 import { pageContainer, sectionHeading, sidebarHeading, sidebarItem } from './typography';
+import { useSectionNav } from '../lib/useSectionNav';
 
 const SECTIONS = [
   { id: 'about', label: 'About Me' },
@@ -11,41 +11,13 @@ const SECTIONS = [
   { id: 'education', label: 'Education' },
   { id: 'honors', label: 'Honors & Awards' },
 ];
+const SECTION_IDS = SECTIONS.map((section) => section.id);
 
 const proseClass =
   '[&_a]:text-[#2563eb] [&_a:hover]:text-[#1d4ed8] [&_a:hover]:underline [&_p]:text-[14px] [&_p]:leading-[24px] [&_p]:tracking-[-0.15px] [&_p]:text-[#525252] md:[&_p]:text-[15px] md:[&_p]:leading-[26px]';
 
 export default function ResearchPage() {
-  const [activeSection, setActiveSection] = useState('about');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      for (const { id: section } of SECTIONS) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const { active: activeSection, scrollTo: scrollToSection } = useSectionNav(SECTION_IDS);
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
