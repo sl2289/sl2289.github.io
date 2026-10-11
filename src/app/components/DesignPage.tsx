@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import DesignProjectCard from './DesignProjectCard';
 import { designCategories, projectsIn } from '../lib/design';
+import { bodyText, wideContainer, sectionHeading, sidebarHeading, sidebarItem } from './typography';
 
 // How many projects each section shows before "MORE →".
 const PREVIEW_COUNT = 2;
+
+// Contact links in the sidebar (Behance / RedNote) are hidden until the real URLs are added.
+const SHOW_CONTACT = false;
 
 // Categories with no projects are left out.
 const sections = designCategories.filter((category) => projectsIn(category.id).length > 0);
@@ -43,16 +47,16 @@ export default function DesignPage() {
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
-      <div className="mx-auto max-w-[1520px] px-4 py-12 sm:px-6 md:px-8 lg:px-10 xl:px-12 md:py-20 md:pt-[73px]">
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8">
+      <div className={wideContainer}>
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
           {/* Main Content */}
           <div className="min-w-0 flex-1">
             {/* Header */}
-            <div className="mb-12">
-              <h1 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
+            <div className="mb-14">
+              <h1 className={sectionHeading}>
                 Design Work
               </h1>
-              <p className="max-w-[672px] text-[16px] leading-7 tracking-[-0.2px] text-[#525252] md:text-[18px] md:leading-[28px] md:tracking-[-0.4395px]">
+              <p className={`max-w-[720px] ${bodyText}`}>
                 A collection of UX research, visual communication, motion design, and immersive experiences.
               </p>
             </div>
@@ -62,7 +66,7 @@ export default function DesignPage() {
               const projects = projectsIn(category.id);
               return (
                 <section key={category.id} id={category.id} className="mb-14 scroll-mt-28 md:scroll-mt-32">
-                  <h2 className="mb-6 text-[28px] font-semibold leading-tight tracking-[0.0091px] text-[#171717] md:mb-8 md:text-[36px] md:leading-[40px]">
+                  <h2 className={sectionHeading}>
                     {category.label}
                   </h2>
 
@@ -75,7 +79,7 @@ export default function DesignPage() {
                   <div className="mt-4 text-center">
                     <Link
                       to={`/design/${category.id}`}
-                      className="inline-block text-[14px] font-medium tracking-[-0.1504px] text-[#171717] hover:text-[#3b82f6] transition-colors"
+                      className="inline-block text-[13px] font-medium tracking-[-0.1px] text-[#171717] transition-colors hover:text-[#3b82f6]"
                     >
                       MORE →
                     </Link>
@@ -86,19 +90,19 @@ export default function DesignPage() {
           </div>
 
           {/* Sticky Sidebar */}
-          <div className="w-full flex-shrink-0 lg:w-[136px]">
+          <div className="w-full flex-shrink-0 lg:w-[160px]">
             <div className="lg:sticky lg:top-24 lg:self-start">
               <div className="border-l-2 border-[#e5e5e5] pl-6">
-                <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-4">
+                <h3 className={sidebarHeading}>
                   On This Page
                 </h3>
 
-                <nav className="space-y-3">
+                <nav className="space-y-2.5">
                   {sections.map(({ id, label }) => (
                     <button
                       key={id}
                       onClick={() => scrollToSection(id)}
-                      className={`block w-full text-left font-medium text-[14px] tracking-[-0.1504px] transition-colors ${
+                      className={`${sidebarItem} ${
                         activeSection === id ? 'text-[#171717]' : 'text-[#737373]'
                       }`}
                     >
@@ -108,19 +112,21 @@ export default function DesignPage() {
                 </nav>
               </div>
 
-              <div className="mt-8 border-l-2 border-[#e5e5e5] pl-6">
-                <h3 className="font-semibold text-[14px] tracking-[0.5496px] uppercase text-[#737373] mb-3">
-                  Contact
-                </h3>
-                <div className="space-y-2">
-                  <a href="#" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
-                    Behance
-                  </a>
-                  <a href="#" className="block text-[14px] tracking-[-0.1504px] text-[#525252] hover:text-[#171717] transition-colors">
-                    RedNote
-                  </a>
+              {SHOW_CONTACT && (
+                <div className="mt-8 border-l-2 border-[#e5e5e5] pl-6">
+                  <h3 className={sidebarHeading}>
+                    Contact
+                  </h3>
+                  <div className="space-y-2">
+                    <a href="#" className="block text-[13px] tracking-[-0.1px] text-[#525252] transition-colors hover:text-[#171717]">
+                      Behance
+                    </a>
+                    <a href="#" className="block text-[13px] tracking-[-0.1px] text-[#525252] transition-colors hover:text-[#171717]">
+                      RedNote
+                    </a>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

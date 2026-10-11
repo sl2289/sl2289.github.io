@@ -5,7 +5,7 @@ export function ProjectCover({ project, className = '' }: { project: DesignProje
   if (!project.cover) {
     return (
       <div className={`flex items-center justify-center bg-[#f5f5f5] ${className}`}>
-        <span className="text-[14px] text-[#a3a3a3]">{project.type ?? project.title}</span>
+        <span className="text-[13px] text-[#a3a3a3]">{project.type ?? project.title}</span>
       </div>
     );
   }
@@ -29,13 +29,13 @@ export default function DesignProjectCard({ project }: { project: DesignProject 
           </span>
         )}
       </div>
-      <div className="p-4 md:p-5">
+      <div className="px-4 py-3 md:px-5 md:py-3.5">
         {project.type && (
-          <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.6px] text-[#707070]">{project.type}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.6px] text-[#707070]">{project.type}</p>
         )}
-        <h3 className="mb-1 text-[18px] font-semibold leading-[24px] tracking-[-0.4492px] text-[#171717]">{project.title}</h3>
+        <h3 className="text-[15px] font-semibold leading-[22px] tracking-[-0.2px] text-[#171717] md:text-[16px] md:leading-[23px]">{project.title}</h3>
         {project.summary && (
-          <p className="text-[13px] leading-[20px] tracking-[-0.1504px] text-[#737373]">{project.summary}</p>
+          <p className="line-clamp-1 text-[13px] leading-[20px] tracking-[-0.1504px] text-[#737373]">{project.summary}</p>
         )}
       </div>
     </Link>

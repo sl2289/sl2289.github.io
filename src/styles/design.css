@@ -6,10 +6,19 @@
      <div class="spacer"></div>        extra vertical space
      <iframe src="…youtube…">          responsive 16:9 embed */
 
+/* Body text matches the Research page (14px on phones, 15px from 768px up). */
 .design-prose {
   color: #525252;
-  font-size: 15px;
-  line-height: 26px;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.15px;
+}
+
+@media (min-width: 768px) {
+  .design-prose {
+    font-size: 15px;
+    line-height: 26px;
+  }
 }
 
 .design-prose > * + * {
@@ -28,17 +37,17 @@
 
 .design-prose h2 {
   margin-top: 3.5rem;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 20px;
+  line-height: 28px;
   font-weight: 600;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.2px;
   color: #171717;
 }
 
 .design-prose h3 {
   margin-top: 2.5rem;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 600;
   color: #171717;
 }

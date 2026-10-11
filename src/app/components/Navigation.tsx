@@ -7,6 +7,9 @@ const draftDot = <span title="Draft" className="ml-1 inline-block h-1.5 w-1.5 -t
 export default function Navigation() {
   const location = useLocation();
 
+  // The name links to the top of the current section: /design/ux/x → /design, /research → /research.
+  const sectionRoot = `/${location.pathname.split('/')[1] ?? ''}`;
+
   const isActive = (path: string) => {
     // Sub-pages (e.g. /design/ux/…) keep their section highlighted.
     return path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
@@ -25,7 +28,7 @@ export default function Navigation() {
       `}</style>
       <div className="bg-[rgba(250,250,250,0.6)] sticky top-0 z-50 w-full border-b border-[rgba(231,229,228,0.5)]">
       <div className="mx-auto flex max-w-[1536px] flex-col gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between md:px-8 md:py-6">
-        <Link to="/" className="font-semibold text-[16px] text-[#171717] tracking-[-0.7125px]">
+        <Link to={sectionRoot} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-semibold text-[16px] text-[#171717] tracking-[-0.7125px]">
           Shengyang Luo
         </Link>
 

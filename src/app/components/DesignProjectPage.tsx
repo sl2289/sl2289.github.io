@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router';
 import { designCategories, designProjects } from '../lib/design';
+import { backLink, bodyText } from './typography';
 
 export default function DesignProjectPage() {
   const { category: categoryId, slug } = useParams();
@@ -24,7 +25,7 @@ export default function DesignProjectPage() {
       <article className="mx-auto max-w-[1080px] px-4 py-12 sm:px-6 md:px-10 md:py-20 md:pt-[73px]">
         <Link
           to={`/design/${project.category}`}
-          className="mb-6 inline-block text-[14px] font-medium tracking-[-0.1504px] text-[#737373] hover:text-[#171717] md:mb-8"
+          className={backLink}
         >
           ← Back to {category?.title ?? 'Design'}
         </Link>
@@ -36,20 +37,20 @@ export default function DesignProjectPage() {
             </span>
           )}
           {project.type && (
-            <p className="mb-2 text-[12px] font-semibold uppercase tracking-[0.6px] text-[#707070]">{project.type}</p>
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.6px] text-[#707070]">{project.type}</p>
           )}
-          <h1 className="text-[28px] font-semibold leading-tight tracking-[-0.4px] text-[#171717] md:text-[40px] md:leading-[48px]">
+          <h1 className="text-[24px] font-semibold leading-tight tracking-[-0.3px] text-[#171717] md:text-[30px] md:leading-[38px]">
             {project.title}
           </h1>
           {project.summary && (
-            <p className="mt-4 max-w-[720px] text-[16px] leading-7 text-[#525252] md:text-[18px] md:leading-[30px]">{project.summary}</p>
+            <p className={`mt-3 max-w-[720px] ${bodyText}`}>{project.summary}</p>
           )}
           {meta.length > 0 && (
             <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-3 border-t border-[#e5e5e5] pt-5">
               {meta.map(({ label, value }) => (
                 <div key={label}>
                   <dt className="text-[11px] font-semibold uppercase tracking-[0.6px] text-[#a3a3a3]">{label}</dt>
-                  <dd className="mt-1 text-[14px] text-[#171717]">{value}</dd>
+                  <dd className="mt-1 text-[13px] text-[#171717]">{value}</dd>
                 </div>
               ))}
             </dl>

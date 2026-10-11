@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ProfileSidebar from './ProfileSidebar';
 import PublicationList from './PublicationList';
 import { publications, teaching, honors, education, researchAboutHtml, profile } from '../lib/content';
+import { pageContainer, sectionHeading, sidebarHeading, sidebarItem } from './typography';
 
 const SECTIONS = [
   { id: 'about', label: 'About Me' },
@@ -48,7 +49,7 @@ export default function ResearchPage() {
 
   return (
     <div className="bg-[#f7f7f7] min-h-screen">
-      <div className="mx-auto max-w-[1320px] px-4 py-12 sm:px-6 md:px-8 md:py-20 md:pt-[73px]">
+      <div className={pageContainer}>
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
           {/* Profile Sidebar — content/profile.yml */}
           <ProfileSidebar profile={profile} />
@@ -57,7 +58,7 @@ export default function ResearchPage() {
           <div className="min-w-0 flex-1 max-w-[800px]">
             {/* About Me Section — content/research-about.md */}
             <section id="about" className="mb-14">
-              <h2 className="mb-5 text-[22px] font-semibold leading-tight tracking-[-0.2px] text-[#171717] md:mb-6 md:text-[26px] md:leading-[32px]">
+              <h2 className={sectionHeading}>
                 About Me
               </h2>
 
@@ -66,7 +67,7 @@ export default function ResearchPage() {
 
             {/* Publications Section — content/_publications/*.md */}
             <section id="publications" className="mb-14">
-              <h2 className="mb-5 text-[22px] font-semibold leading-tight tracking-[-0.2px] text-[#171717] md:mb-6 md:text-[26px] md:leading-[32px]">
+              <h2 className={sectionHeading}>
                 Publications
               </h2>
 
@@ -75,7 +76,7 @@ export default function ResearchPage() {
 
             {/* Teaching Section — content/_teaching/*.md */}
             <section id="teaching" className="mb-14">
-              <h2 className="mb-5 text-[22px] font-semibold leading-tight tracking-[-0.2px] text-[#171717] md:mb-6 md:text-[26px] md:leading-[32px]">
+              <h2 className={sectionHeading}>
                 Teaching
               </h2>
 
@@ -110,7 +111,7 @@ export default function ResearchPage() {
 
             {/* Education Section — content/education.yml */}
             <section id="education" className="mb-14">
-              <h2 className="mb-5 text-[22px] font-semibold leading-tight tracking-[-0.2px] text-[#171717] md:mb-6 md:text-[26px] md:leading-[32px]">
+              <h2 className={sectionHeading}>
                 Education
               </h2>
 
@@ -132,7 +133,7 @@ export default function ResearchPage() {
 
             {/* Honors & Awards Section — content/honors.yml */}
             <section id="honors" className="mb-14">
-              <h2 className="mb-5 text-[22px] font-semibold leading-tight tracking-[-0.2px] text-[#171717] md:mb-6 md:text-[26px] md:leading-[32px]">
+              <h2 className={sectionHeading}>
                 Honors &amp; Awards
               </h2>
 
@@ -155,7 +156,7 @@ export default function ResearchPage() {
           <div className="hidden w-[180px] flex-shrink-0 xl:block">
             <div className="lg:sticky lg:top-24">
               <div className="border-l-2 border-[#e5e5e5] pl-6">
-                <h3 className="font-semibold text-[12px] tracking-[0.5px] uppercase text-[#737373] mb-3">
+                <h3 className={sidebarHeading}>
                   On This Page
                 </h3>
 
@@ -164,7 +165,7 @@ export default function ResearchPage() {
                     <button
                       key={id}
                       onClick={() => scrollToSection(id)}
-                      className={`block w-full text-left font-medium text-[13px] tracking-[-0.1px] transition-colors ${
+                      className={`${sidebarItem} ${
                         activeSection === id ? 'text-[#171717]' : 'text-[#737373]'
                       }`}
                     >
