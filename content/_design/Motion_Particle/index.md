@@ -18,60 +18,6 @@ order: 0                     # smaller = earlier in its category
 
 <iframe src="https://www.youtube.com/embed/gUejl_kdHw0" allowfullscreen></iframe>
 
-<!-- Regular paragraphs are plain text. You can use **bold**, *italic*, and [links](https://example.com). Text stays at a comfortable reading width, while images and videos span the whole page.
-
-## Full-width image -->
-
-<!-- An image on its own line fills the page. GIFs work exactly the same way: `![](demo.gif)`. -->
-
-<!-- ![](hero.svg) -->
-
-<!-- ## Image with a caption -->
-
-<!-- <figure>
-  <img src="hero.svg">
-  <figcaption>Captions go in figcaption, centered under the media.</figcaption>
-</figure> -->
-
-<!-- ## Side by side -->
-
-<!-- Wrap images in a `row` to put them next to each other — two, three, or more. On phones they stack.
-
-<div class="row">
-  <img src="flow-1.svg">
-  <img src="flow-2.svg">
-</div>
-
-<div class="row">
-  <img src="screen-1.svg">
-  <img src="screen-2.svg">
-  <img src="screen-3.svg">
-</div> -->
-
-<!-- ## Video -->
-
-<!-- <iframe src="https://www.youtube.com/embed/gUejl_kdHw0" allowfullscreen></iframe>
-
-Put the video file in this folder and use one of these (remove the `<!-- -->` 
-
-
-<!--
-Plays silently on a loop, like a GIF (good for short UI demos):
-<video src="demo.mp4" autoplay muted loop playsinline></video>
-
-Normal video with play / pause controls:
-<video src="walkthrough.mp4" controls></video>
-
-YouTube (use the /embed/ link):
-<iframe src="https://youtu.be/gUejl_kdHw0?si=N5bDb08Mx-NUpDWs" allowfullscreen></iframe>
-
-Bilibili:
-<iframe src="https://player.bilibili.com/player.html?bvid=BV_ID&autoplay=0" allowfullscreen></iframe>
--->
-
-<!-- Videos and images can also go inside a `row` or a `figure`. -->
-
-<!-- <div class="spacer"></div> -->
 
 ## Frames
 
@@ -96,27 +42,6 @@ Bilibili:
   <img src="ProcessGif/P6.gif">
 </div>
 
-<!-- <div class="row">
-  <img src="ProcessGif/P1.gif">
-  <img src="ProcessGif/P2.gif">
-  <img src="ProcessGif/P3.gif">
-</div>
+## Sketch
 
-
-
-<div class="row">
-  <img src="ProcessGif/P4.gif">
-  <img src="ProcessGif/P5.gif">
-  <img src="ProcessGif/P6.gif">
-</div> -->
-<!-- ### Lists --> 
-
-<!-- - Research and interviews
-- Wireframes and prototypes
-- Usability testing
-
-> Quotes from participants look like this. -->
-
-<!-- ---
-
-A horizontal line (`---`) separates larger parts of the story. -->
+<img src="Frames/Particle_Sketch.png" style="max-width: 600px; margin: 40px auto 0;">
