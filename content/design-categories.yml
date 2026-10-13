@@ -1,14 +1,19 @@
-# Sections on the Design page, in display order.
+# Sections on the Design page.
+# order: smaller number = shown first (also the order in the "On This Page" sidebar).
+#        To move 3D/Motion to the top, just change the numbers — no need to move the blocks.
 # A project's `category` in its index.md must match one of these ids.
 - id: mr
+  order: 2
   label: "MR"
   title: "Mixed Reality"
   description: "Immersive experiences and spatial computing projects."
 - id: ux
+  order: 3
   label: "UX"
   title: "UX Research & Design"
   description: "User experience research and interface design projects."
 - id: 3d-motion
+  order: 1
   label: "3D/Motion"
   title: "3D & Motion Design"
   description: "3D modeling, rendering, and motion graphics."

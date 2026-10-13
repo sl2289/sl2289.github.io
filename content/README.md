@@ -58,7 +58,7 @@ type: "Undergraduate course"
 
 - 文件夹名就是网址：`content/_design/autocue-interface/` → `/design/ux/autocue-interface`
 - **文件夹名以 `_` 开头 = 草稿**：本地 `npm run dev` 能看到（带 Draft 标记），线上网站完全不包含（文字和图片视频都不会上传）。准备好了把 `_` 去掉即可
-- 分类（MR / UX / 3D/Motion）在 `design-categories.yml` 里，可以增删改名
+- 分类（MR / UX / 3D/Motion）在 `design-categories.yml` 里，可以增删改名；版块顺序用每个分类的 `order` 数字调整（数字小的在前）
 - **完整示例和所有排版写法**：`_design/_example-project/index.md`，新建作品时直接复制整个文件夹改
 
 ## 排版速查

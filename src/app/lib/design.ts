@@ -10,6 +10,7 @@ export interface DesignCategory {
   label: string;
   title?: string;
   description?: string;
+  order?: number;
 }
 
 export interface DesignProject {
@@ -27,7 +28,11 @@ export interface DesignProject {
   bodyHtml: string;
 }
 
-export const designCategories = (parseYaml(categoriesRaw) ?? []) as DesignCategory[];
+// Sorted by `order` (smallest first); categories without one keep their file order, after the rest.
+export const designCategories = ((parseYaml(categoriesRaw) ?? []) as DesignCategory[])
+  .map((category, index) => ({ category, index }))
+  .sort((a, b) => (a.category.order ?? Infinity) - (b.category.order ?? Infinity) || a.index - b.index)
+  .map(({ category }) => category);
 
 // Folders starting with "_" are drafts: shown while running `npm run dev` (with a "Draft" badge),
 // and left out of the production build entirely — text, images and videos.

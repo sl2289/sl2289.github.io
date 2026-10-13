@@ -1,8 +1,8 @@
 ---
-title: "AR Shopping UI"
+title: "MR Shopping UI"
 category: mr
 type: "Mixed Reality"
-summary: "VR/MR interaction design for technical skill acquisition"
+summary: "VR/MR UI design"
 cover: "Cover4.jpg"
 order: 1
 ---
