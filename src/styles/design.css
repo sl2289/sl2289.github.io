@@ -120,8 +120,10 @@
   border: 0;
 }
 
-/* A markdown image on its own line is wrapped in <p>; let it use the full width. */
-.design-prose > p:has(> img:only-child) {
+/* Markdown wraps an image or a <video> on its own line in <p>; let it use the full width
+   instead of the 720px text width. */
+.design-prose > p:has(> img:only-child),
+.design-prose > p:has(> video:only-child) {
   max-width: none;
 }
 
