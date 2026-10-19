@@ -5,6 +5,7 @@ type: "Mixed Reality"
 summary: "VR/MR UI design"
 cover: "Cover4.jpg"
 year: 2023  
+tools: "Figma, Cinema 4D, After Effects"
 order: 1
 ---
 
