@@ -163,6 +163,56 @@
   object-fit: cover;
 }
 
+/* Media inside a <figure> in a row keeps its own height, so the caption stays below it
+   instead of being pushed out of the figure. */
+.design-prose .row figure img,
+.design-prose .row figure video {
+  height: auto;
+}
+
+/* Fixed-column grids that wrap onto new rows: <div class="row cols-3">.
+   Phones: cols-2 → 1 column, cols-3 / cols-4 → 2 columns. */
+.design-prose .row.cols-2,
+.design-prose .row.cols-3,
+.design-prose .row.cols-4 {
+  grid-auto-flow: row;
+}
+
+.design-prose .row.cols-3,
+.design-prose .row.cols-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .design-prose .row.cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .design-prose .row.cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .design-prose .row.cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Position for media narrower than the column: <img class="right" style="width: 50%;"> */
+.design-prose .left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.design-prose .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.design-prose .right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 .design-prose .spacer {
   height: 3rem;
 }
