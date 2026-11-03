@@ -27,7 +27,7 @@ export default function DesignProjectPage() {
           to={`/design/${project.category}`}
           className={backLink}
         >
-          ← Back to {category?.title ?? 'Design'}
+          ← Back to {category?.title ?? category?.label ?? 'Design'}
         </Link>
 
         <header className="mb-10 md:mb-14">

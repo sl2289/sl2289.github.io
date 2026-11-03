@@ -19,4 +19,4 @@ export const backLink =
 
 // Right-hand "On This Page" sidebar.
 export const sidebarHeading = 'mb-3 text-[12px] font-semibold uppercase tracking-[0.5px] text-[#737373]';
-export const sidebarItem = 'block w-full text-left text-[13px] font-medium tracking-[-0.1px] transition-colors';
+export const sidebarItem = 'block w-full whitespace-nowrap text-left text-[13px] font-medium tracking-[-0.1px] transition-colors';

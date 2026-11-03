@@ -62,7 +62,7 @@ export default function DesignPage() {
           </div>
 
           {/* Sticky Sidebar */}
-          <div className="w-full flex-shrink-0 lg:w-[160px]">
+          <div className="w-full flex-shrink-0 lg:w-auto lg:min-w-[160px]">
             <div className="lg:sticky lg:top-24 lg:self-start">
               <div className="border-l-2 border-[#e5e5e5] pl-6">
                 <h3 className={sidebarHeading}>
