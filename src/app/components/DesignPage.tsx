@@ -33,7 +33,7 @@ export default function DesignPage() {
               </p>
             </div>
 
-            {/* One section per category — content/design-categories.yml + content/_design/* */}
+            {/* One section per category — content/design-categories.yml + content/design/* */}
             {sections.map((category) => {
               const projects = projectsIn(category.id);
               return (

@@ -57,7 +57,7 @@ export default function DesignProjectPage() {
           )}
         </header>
 
-        {/* Free-form layout from content/_design/<slug>/index.md — styles in src/styles/design.css */}
+        {/* Free-form layout from content/design/<slug>/index.md — styles in src/styles/design.css */}
         <div className="design-prose" dangerouslySetInnerHTML={{ __html: project.bodyHtml }} />
       </article>
     </div>

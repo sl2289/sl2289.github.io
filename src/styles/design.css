@@ -1,4 +1,4 @@
-/* Layout for design project pages (content/_design/<slug>/index.md).
+/* Layout for design project pages (content/design/<slug>/index.md).
    Text is kept at a readable width; images, GIFs and videos span the full column.
    Blocks you can use in the markdown:
      <div class="row">…</div>         side by side (2, 3, 4… items), stacks on phones

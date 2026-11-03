@@ -26,6 +26,7 @@ export interface Publication {
   url?: string;
   venue_short?: string;
   order?: number;
+  draft: boolean;
   bodyHtml: string;
 }
 
@@ -39,6 +40,7 @@ export interface Teaching {
   venue?: string;
   location?: string;
   url?: string;
+  draft: boolean;
   bodyHtml: string;
 }
 
@@ -53,30 +55,42 @@ function toDateString(value: unknown) {
   return value == null ? '' : String(value);
 }
 
+// Same rule as everywhere on the site: a file name starting with "_" is a DRAFT — shown while
+// running `npm run dev` (with a "Draft" tag) and left out of the live site entirely.
+// (`published: false`, the academicpages way, also still hides an entry.)
 function loadCollection<T>(files: Record<string, string>): T[] {
   return Object.entries(files)
     .map(([path, raw]) => ({ path, ...parseFrontMatter(raw) }))
-    // academicpages convention: `published: false` hides an entry.
     .filter(({ data }) => data.published !== false)
     .map(({ path, data, body }) => {
+      const file = path.split('/').pop()!.replace(/\.md$/, '');
       return {
         ...data,
-        slug: path.split('/').pop()!.replace(/\.md$/, ''),
+        slug: file.replace(/^_/, ''),
         date: toDateString(data.date),
+        draft: file.startsWith('_'),
         bodyHtml: marked.parse(body.trim(), { async: false }),
       } as T & { date: string };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
-// Publications are listed by `order` (smallest first); entries without one go last, newest first.
-export const publications = loadCollection<Publication>(
-  import.meta.glob('/content/_publications/*.md', { query: '?raw', import: 'default', eager: true }),
-).sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
+// (import.meta.glob only accepts literal patterns and options, so they are written out each time.)
+const publicationFiles: Record<string, string> = {
+  ...import.meta.glob(['/content/publications/*.md', '!/content/publications/_*.md'], { query: '?raw', import: 'default', eager: true }),
+  ...(import.meta.env.DEV ? import.meta.glob('/content/publications/_*.md', { query: '?raw', import: 'default', eager: true }) : {}),
+};
+const teachingFiles: Record<string, string> = {
+  ...import.meta.glob(['/content/teaching/*.md', '!/content/teaching/_*.md'], { query: '?raw', import: 'default', eager: true }),
+  ...(import.meta.env.DEV ? import.meta.glob('/content/teaching/_*.md', { query: '?raw', import: 'default', eager: true }) : {}),
+};
 
-export const teaching = loadCollection<Teaching>(
-  import.meta.glob('/content/_teaching/*.md', { query: '?raw', import: 'default', eager: true }),
+// Publications are listed by `order` (smallest first); entries without one go last, newest first.
+export const publications = loadCollection<Publication>(publicationFiles).sort(
+  (a, b) => (a.order ?? Infinity) - (b.order ?? Infinity),
 );
+
+export const teaching = loadCollection<Teaching>(teachingFiles);
 
 // External links in About Me open in a new tab.
 export const researchAboutHtml = marked

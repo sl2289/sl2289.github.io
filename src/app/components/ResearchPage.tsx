@@ -37,7 +37,7 @@ export default function ResearchPage() {
               <div className={`space-y-4 ${proseClass}`} dangerouslySetInnerHTML={{ __html: researchAboutHtml }} />
             </section>
 
-            {/* Publications Section — content/_publications/*.md */}
+            {/* Publications Section — content/publications/*.md */}
             <section id="publications" className="mb-14">
               <h2 className={sectionHeading}>
                 Publications
@@ -46,7 +46,7 @@ export default function ResearchPage() {
               <PublicationList publications={publications} highlight={profile.author_name} />
             </section>
 
-            {/* Teaching Section — content/_teaching/*.md */}
+            {/* Teaching Section — content/teaching/*.md */}
             <section id="teaching" className="mb-14">
               <h2 className={sectionHeading}>
                 Teaching
@@ -68,6 +68,9 @@ export default function ResearchPage() {
                           item.title
                         )}
                         {(item.role ?? item.type) && `, ${item.role ?? item.type}`}
+                        {item.draft && (
+                          <span className="ml-2 rounded bg-[#fef3c7] px-1.5 py-px text-[11px] font-semibold text-[#92400e]">Draft</span>
+                        )}
                         {item.bodyHtml && (
                           <div
                             className="mt-0.5 [&_a]:underline [&_p]:text-[13px] [&_p]:leading-[20px] [&_p]:tracking-[-0.1px] [&_p]:text-[#737373]"

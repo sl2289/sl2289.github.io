@@ -7,13 +7,13 @@
 # it is part of the URL).
 - id: mr
   order: 2
-  label: "Mixed Reality"
-  description: "Immersive experiences and spatial computing projects."
+  label: "XR & Spatial Interaction"
+  description: "Immersive experiences, spatial interfaces, and gesture-based interactions."
 - id: ux
   order: 3
-  label: "UX Research & Design"
-  description: "User experience research and interface design projects."
+  label: "UX Research & Interaction Design"
+  description: "Human-centered research, interface design, and AI-assisted interactive systems."
 - id: 3d-motion
   order: 1
-  label: "3D & Motion Design"
-  description: "3D modeling, rendering, and motion graphics."
+  label: "Visual & Motion Design"
+  description: "Visual communication, 3D modeling, and motion graphics."

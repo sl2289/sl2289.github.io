@@ -70,6 +70,9 @@ function PublicationItem({ pub, highlight }: { pub: Publication; highlight?: str
 
         <div className="mt-1.5 flex items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            {pub.draft && (
+              <span className="rounded bg-[#fef3c7] px-1.5 py-px text-[11px] font-semibold text-[#92400e]">Draft</span>
+            )}
             {links.map(({ label, href, Icon }) => (
               <a
                 key={label}

@@ -1,65 +1,80 @@
-# Research 页内容
+# 网站内容说明
 
-Research 页（`/research`）从这里的 markdown 文件自动生成，格式与 [academicpages](https://github.com/academicpages/academicpages.github.io) 的 `_publications/`、`_teaching/` 兼容，可以直接从模版复制条目过来。
+## 草稿规则（全站统一）
 
-- `profile.yml` — 左侧个人信息栏：头像、姓名、简介、所在地、学校、链接（Email / Google Scholar / ORCID / GitHub / LinkedIn）。头像放到 `public/images/` 后把 `avatar` 改成 `"/images/文件名.jpg"`；留空显示默认头像
-- `research-about.md` — About Me 正文
-- `_publications/*.md` — 每篇论文一个文件，按 `date` 倒序排列
-- `honors.yml` — Honors & Awards，按文件里的顺序显示
-- `education.yml` — Education，按文件里的顺序显示
-- `_teaching/*.md` — 每段教学经历一个文件，按 `date` 倒序排列（目前隐藏：`src/app/components/ResearchPage.tsx` 顶部 `SHOW_TEACHING` 改成 `true` 即可恢复）
+**名字以 `_` 开头 = 草稿**：本地 `npm run dev` 能看到（带黄色 Draft 标记），线上网站完全不包含。准备好了把 `_` 去掉就上线。
 
-改完保存即可，`npm run dev` 会热更新；push 到 main 后自动部署。
+| 内容 | 草稿写法 | 上线写法 |
+|---|---|---|
+| 论文 | `publications/_my-paper.md` | `publications/my-paper.md` |
+| 教学经历 | `teaching/_my-course.md` | `teaching/my-course.md` |
+| Design 作品 | `design/_my-project/`（整个文件夹） | `design/my-project/` |
+| Home / About 页 | `src/app/pages/_home.tsx` | `src/app/pages/home.tsx` |
 
-想暂时隐藏某篇论文或某段教学经历、又不想删文件：在它的 front matter 里加 `published: false`（academicpages 的标准写法），删掉这行或改成 `true` 即可恢复显示。
+除此之外，名字里的 `_` 没有特殊含义。改完保存即可，`npm run dev` 会热更新；push 到 main 后自动部署。
+
+---
+
+# Research 页
+
+Research 页（`/research`）从这些文件自动生成，论文 / 教学的字段与 [academicpages](https://github.com/academicpages/academicpages.github.io) 兼容，可以直接从模版复制条目过来。
+
+- `profile.yml` — 左侧个人信息栏：头像、姓名、简介、所在地、学校、链接。`author_name` 是论文作者列表里要加粗的名字
+- `research-about.md` — About Me 正文（支持 markdown 链接）
+- `publications/*.md` — 每篇论文一个文件，按 `order` 排序
+- `teaching/*.md` — 每段教学经历一个文件，按 `date` 倒序
+- `education.yml`、`honors.yml` — 按文件里的顺序显示
 
 ## 新增论文
 
-`content/_publications/2026-my-paper.md`：
+`content/publications/2026-my-paper.md`：
 
 ```yaml
 ---
 title: "Paper Title"
-date: 2026-05-01                 # 决定排序，年份显示在徽章上
-venue: "CHI 2026"
-authors: "Shengyang Liu, Co-author A"   # 本站扩展字段
-status: "Under Review at CHI 2026"      # 本站扩展字段，可选；有则替代 venue 显示
-image: "/images/publications/my-paper.png"  # 本站扩展字段，可选；图片放 public/images/publications/
-excerpt: "一句话简介（可选）"
-paperurl: "https://..."          # 可选，显示 PDF 链接
-slidesurl: "https://..."         # 可选，显示 Slides 链接
-bibtexurl: "https://..."         # 可选，显示 BibTeX 链接
+category: conferences            # conferences → [C]，manuscripts / journals → [J]
+date: 2026-05-01
+order: 1                         # 数字小的排前面
+authors: "Shengyang Luo, Co-author A, and Co-author B"
+venue: "Proceedings of ..., pp. 1-15, 2026"
+status: "Under review"           # 可选；有的话显示成 "venue, 年份 (status)"
+venue_short: "CHI'26"            # 可选，右侧蓝色标签
+image: "/images/publications/my-paper.png"   # 可选，缩略图放 public/images/publications/
+url: "https://..."               # 可选，标题链接（没有就用 paperurl）
+paperurl: "https://..."          # 可选，PDF
+slidesurl: "https://..."         # 可选，Slides
+videourl: "https://..."          # 可选，Video
+bibtexurl: "https://..."         # 可选，BibTeX
 ---
 ```
 
-academicpages 的其他字段（`collection`、`permalink`、`category`、`citation`）可以保留，页面会忽略。
+academicpages 的其他字段（`collection`、`permalink`、`citation` 等）可以保留，页面会忽略。
 
 ## 新增教学经历
 
-`content/_teaching/2026-fall-course.md`：
+`content/teaching/2026-fall-course.md`：
 
 ```yaml
 ---
 title: "Course Name"
 date: 2026-08-01
-term: "Fall 2026"                # 本站扩展字段，显示在徽章上
-role: "Teaching Assistant"       # 本站扩展字段；没有则显示 type
-type: "Undergraduate course"
+term: "Fall 2026"                # 左边显示的学期
+role: "Teaching Assistant"       # 没有则显示 type
+url: "https://..."               # 可选，课程名链接
 ---
 
-课程描述，支持 markdown。
+一句课程描述，支持 markdown。
 ```
 
 ---
 
-# Design 页内容
+# Design 页
 
-每个作品是 `content/_design/` 下的一个文件夹：`index.md` + 这个作品用到的图片 / GIF / 视频，都放在同一个文件夹里，用文件名直接引用。
+每个作品是 `content/design/` 下的一个文件夹：`index.md` + 这个作品用到的图片 / GIF / 视频，都放在同一个文件夹里，用文件名直接引用。
 
-- 文件夹名就是网址：`content/_design/autocue-interface/` → `/design/ux/autocue-interface`
-- **文件夹名以 `_` 开头 = 草稿**：本地 `npm run dev` 能看到（带 Draft 标记），线上网站完全不包含（文字和图片视频都不会上传）。准备好了把 `_` 去掉即可
-- 分类（MR / UX / 3D/Motion）在 `design-categories.yml` 里，可以增删改名；版块顺序用每个分类的 `order` 数字调整（数字小的在前）
-- **完整示例和所有排版写法**：`_design/_example-project/index.md`，新建作品时直接复制整个文件夹改
+- 文件夹名就是网址：`content/design/Motion_Particle/` → `/design/3d-motion/Motion_Particle`
+- 分类在 `design-categories.yml` 里：`label` 是显示的名字，`order` 调版块顺序（数字小的在前）。`id` 不要改（是网址的一部分，也是作品 `category` 对应的值）
+- **完整示例和所有排版写法**：`design/_template/index.md`，新建作品时复制整个文件夹再改名
 
 ## 排版速查
 
@@ -93,7 +108,4 @@ type: "Undergraduate course"
 
 # Home 和 About 页
 
-这两页是代码文件，在 `src/app/pages/` 里，规则和 Design 草稿一样：
-
-- `_home.tsx` / `_about.tsx`（前面有 `_`）= **草稿**：本地 `npm run dev` 能看到，导航栏上有个小橙点，页面左下角有 Draft 标记；线上网站完全不包含，访问 `/` 和 `/about` 会跳到 Research
-- 改好后把文件名的 `_` 去掉（`home.tsx` / `about.tsx`）就上线了
+这两页是代码文件，在 `src/app/pages/` 里。现在是草稿（`_home.tsx` / `_about.tsx`）：本地导航栏上有个小橙点，线上访问 `/` 和 `/about` 会跳到 Research。改好后去掉文件名的 `_` 就上线。

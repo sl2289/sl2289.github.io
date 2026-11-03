@@ -2,7 +2,7 @@ import { parse as parseYaml } from 'yaml';
 import { marked } from 'marked';
 import categoriesRaw from '/content/design-categories.yml?raw';
 
-// Each design project is a folder: content/_design/<slug>/index.md plus its images/GIFs/videos.
+// Each design project is a folder: content/design/<slug>/index.md plus its images/GIFs/videos.
 // Files in the folder are referenced by relative name (e.g. "cover.gif", "demo.mp4").
 
 export interface DesignCategory {
@@ -39,19 +39,19 @@ export const designCategories = ((parseYaml(categoriesRaw) ?? []) as DesignCateg
 // (import.meta.glob only accepts literal patterns and options, so they are written out each time.)
 
 const sources: Record<string, string> = {
-  ...import.meta.glob(['/content/_design/*/index.md', '!/content/_design/_*/index.md'], { query: '?raw', import: 'default', eager: true }),
-  ...(import.meta.env.DEV ? import.meta.glob('/content/_design/_*/index.md', { query: '?raw', import: 'default', eager: true }) : {}),
+  ...import.meta.glob(['/content/design/*/index.md', '!/content/design/_*/index.md'], { query: '?raw', import: 'default', eager: true }),
+  ...(import.meta.env.DEV ? import.meta.glob('/content/design/_*/index.md', { query: '?raw', import: 'default', eager: true }) : {}),
 };
 const assets: Record<string, string> = {
-  ...import.meta.glob(['/content/_design/*/**/*.{png,jpg,jpeg,gif,webp,svg,avif,mp4,webm,mov}', '!/content/_design/_*/**'], { query: '?url', import: 'default', eager: true }),
-  ...(import.meta.env.DEV ? import.meta.glob('/content/_design/_*/**/*.{png,jpg,jpeg,gif,webp,svg,avif,mp4,webm,mov}', { query: '?url', import: 'default', eager: true }) : {}),
+  ...import.meta.glob(['/content/design/*/**/*.{png,jpg,jpeg,gif,webp,svg,avif,mp4,webm,mov}', '!/content/design/_*/**'], { query: '?url', import: 'default', eager: true }),
+  ...(import.meta.env.DEV ? import.meta.glob('/content/design/_*/**/*.{png,jpg,jpeg,gif,webp,svg,avif,mp4,webm,mov}', { query: '?url', import: 'default', eager: true }) : {}),
 };
 
 const isLocal = (path: string) => !/^(https?:|\/|#|mailto:|data:)/.test(path);
 
 function resolveAsset(folder: string, path?: string) {
   if (!path || !isLocal(path)) return path;
-  return assets[`/content/_design/${folder}/${path.replace(/^\.\//, '')}`] ?? path;
+  return assets[`/content/design/${folder}/${path.replace(/^\.\//, '')}`] ?? path;
 }
 
 function parseFrontMatter(raw: string) {
