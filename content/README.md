@@ -86,6 +86,11 @@ url: "https://..."               # 可选，课程名链接
   <img src="b.png">
 </div>
 
+<div class="stack">                <!-- 多张图上下无缝连在一起，适合长图 / 作品集展板 -->
+  <img src="1.png">
+  <img src="2.png">
+</div>
+
 <figure>                           <!-- 带说明文字 -->
   <img src="c.png">
   <figcaption>说明文字</figcaption>

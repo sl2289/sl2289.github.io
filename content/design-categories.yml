@@ -6,14 +6,14 @@
 # A project's `category` in its index.md must match one of these ids (don't rename an id:
 # it is part of the URL).
 - id: mr
-  order: 2
+  order: 3
   label: "XR & Spatial Interaction"
   description: "Immersive experiences, spatial interfaces, and gesture-based interactions."
 - id: ux
-  order: 3
+  order: 1
   label: "UX Research & Interaction Design"
   description: "Human-centered research, interface design, and AI-assisted interactive systems."
 - id: 3d-motion
-  order: 1
+  order: 2
   label: "Visual & Motion Design"
   description: "Visual communication, 3D modeling, and motion graphics."

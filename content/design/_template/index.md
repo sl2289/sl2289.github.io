@@ -17,7 +17,7 @@ cover: "media/cover.svg"          # 卡片封面，16:9 显示（会裁切到 16
 year: 2026                        # 可选：详情页顶部 YEAR
 role: "Designer, Researcher"      # 可选：详情页顶部 ROLE
 tools: "Figma, Unity, Maya"       # 可选：详情页顶部 TOOLS
-order: 0                          # 在版块里的顺序，数字小的在前
+order: 2                          # 在版块里的顺序，数字小的在前
 ---
 
 <!--

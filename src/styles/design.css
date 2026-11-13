@@ -3,6 +3,7 @@
    Blocks you can use in the markdown:
      <div class="row">…</div>         side by side (2, 3, 4… items), stacks on phones
      <figure>…<figcaption>…</figcaption></figure>   media with a caption
+     <div class="stack">…</div>       images/videos stacked edge to edge, no gaps (long case-study boards)
      <div class="spacer"></div>        extra vertical space
      <iframe src="…youtube…">          responsive 16:9 embed */
 
@@ -216,3 +217,17 @@
 .design-prose .spacer {
   height: 3rem;
 }
+
+/* Seamless vertical stack: <div class="stack"><img …><img …></div>
+   Media sit edge to edge with no gaps, like one long board; only the outer corners are rounded. */
+.design-prose .stack {
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.design-prose .stack > img,
+.design-prose .stack > video {
+  margin: 0;
+  border-radius: 0;
+}
+
